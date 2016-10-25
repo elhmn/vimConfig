@@ -1,33 +1,58 @@
 "My vim config
 
+"Style
 syntax on
+colorscheme slate
+set cursorline
+highlight CursorLine ctermbg=darkblue cterm=NONE
+set hls
 set number
+set incsearch
+set foldenable
+set foldmethod=syntax
+
+"Indentation
 set shiftwidth=4
 set tabstop=4
 set autoindent
 set smartindent
 
-"vim look color sheme
-colorscheme slate
+"Command map
 
-"abreviation code
-iabbrev if if ()
-iabbrev while while ()
-iabbrev { {<cr>}<up>
-"iabbrev ( ()<right>
-iabbrev return return (0);
+"go to previous tab
+map <c-left>	gT
+imap <c-left>	<esc>gT
 
-"key map"
-map <C-d> :s/\s*$/\/\/Debug/g<cr>
+"go to next tab
+map <c-right>	gt
+imap <c-right>	<esc>gt
 
-"buffer select map
-"map <C-left> <ESC>:bp<CR>
-"map <C-right> <ESC>:bn<CR>
+"new tab
+nmap <c-t>	:tabnew<cr>
+imap <c-t>	<esc>:tabnew<cr>
 
-"command map
-map <C-n> :cn <cr>
-map <C-p> :cp <cr>
+"close tab
+nmap <c-x>	:tabclose<cr>
+imap <c-x>	<esc>:tabclose<cr>
 
-"match
-" limit column number
+"move to place templates placeholders
+nnoremap <c-j> /<+.\++><cr>c/+>/e<cr>
+inoremap <c-j> <esc>/<+.\++><cr>c/+>/e<cr>
+
+"Match Limit column number
 match Error #\%>80v.\+#
+
+"Match line ending with \t or space
+2match Error #[ \t]\+$#
+
+"Statusline
+set laststatus=2
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v]\ [LEN=%L]
+
+"Abbreviation
+source ~/.vimsrcs/abbreviations.vim
+
+"Load template
+autocmd BufNewFile * silent! 0r ~/.vimsrcs/templates/%:e.tpl
+
+"Comment vim file
