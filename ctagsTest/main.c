@@ -6,5 +6,6 @@ int		main(int ac, char **av)
 	(void)av;
 
 	say_hello();
+
 	return (0);
 }

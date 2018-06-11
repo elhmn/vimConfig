@@ -10,11 +10,29 @@ set cpo&vim				"go into nocompatible-mode
 "======================================
 
 let		s:templatePath = "~/.vimsrcs/templates"
+let		s:author = "elhmn"
 
-function!		GetHeaderFromTemplate(cHeaderFileName)
-	echom "fileName : ".s:templatePath."/".a:cHeaderFileName
-	execute ":r ".s:templatePath."/".a:cHeaderFileName
-	execute "normal! ggdd"
+function		s:ReplaceString(str, src)
+	let l:replace = ""
+
+	for e in range(0, len(a:str) - 1)
+		let l:replace .= " "
+	endfor
+	execute "normal! /".a:str."\<cr>"
+	execute "%s/".a:str."/".l:replace."/gi"
+	execute "normal! \<c-o>R".a:src
+	unlet l:replace
+endfunction
+
+function!		GetHeaderFromTemplate(headerFileName)
+	let		l:variables = {"filename":"<+FILENAME+>","author":"<+AUTHOR+>", "editor":"<+EDITOR+>"}
+	let		l:editor = $USER
+	echom "fileName : ".s:templatePath."/".a:headerFileName
+	execute ":r ".s:templatePath."/".a:headerFileName
+	execute "normal! ggdd\<c-o>\<c-o>"
+	call s:ReplaceString(l:variables["filename"], expand("%:t"))
+	call s:ReplaceString(l:variables["author"], s:author)
+	call s:ReplaceString(l:variables["editor"], l:editor)
 endfunction
 
 function!		AddHeader()
