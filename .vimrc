@@ -72,3 +72,6 @@ function! LoadSession()
 		execute 'source $HOME/.vim/sessions/session.vim'
 	endif
 endfunction
+
+"vim scripts test
+source ~/.vimsrcs/header.vim
