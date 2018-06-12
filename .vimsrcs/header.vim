@@ -25,14 +25,16 @@ function		s:ReplaceString(str, src)
 endfunction
 
 function!		GetHeaderFromTemplate(headerFileName)
-	let		l:variables = {"filename":"<+FILENAME+>","author":"<+AUTHOR+>", "editor":"<+EDITOR+>"}
+	let		l:variables = {"filename":"<+FILENAME+>","author":"<+AUTHOR+>", "editor":"<+EDITOR+>", "creationdate":"<+CREATIONDATE+>"}
 	let		l:editor = $USER
+	let		l:creationDate = system('stat -qx PersonClass.js | grep -E  "^Access:" | cut -d ":" -f 2- | cut -d " " -f 2- | tr -d "\n"')
 	echom "fileName : ".s:templatePath."/".a:headerFileName
 	execute ":r ".s:templatePath."/".a:headerFileName
 	execute "normal! ggdd\<c-o>\<c-o>"
 	call s:ReplaceString(l:variables["filename"], expand("%:t"))
 	call s:ReplaceString(l:variables["author"], s:author)
 	call s:ReplaceString(l:variables["editor"], l:editor)
+	call s:ReplaceString(l:variables["creationdate"], l:creationDate)
 endfunction
 
 function!		AddHeader()
