@@ -50,7 +50,7 @@ match ErrorMsg #\%>80v.\+#
 
 "Statusline
 set laststatus=2
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v]\ [LEN=%L]
+set statusline=%f\ [FORMAT=%{&ff}]\ [POS=%04l,%04v]\ [LEN=%L]
 
 "Abbreviation
 source ~/.vimsrcs/abbreviations.vim
@@ -113,3 +113,97 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "  autocmd!
 "  autocmd VimEnter * :Vexplore
 "augroup END
+
+"vim-js
+let g:javascript_plugin_jsdoc = 1
+
+"eslint_d
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = 'eslint_d'
+
+"vim plug : plugin manager
+
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+
+
+"for lint
+Plug 'w0rp/ale'
+"Plug 'joestelmach/lint.vim'
+
+"tern
+Plug 'marijnh/tern_for_vim'
+
+"Completion
+Plug 'maralla/completor.vim' , { 'do': 'make js'}
+
+"Tree browser
+Plug 'scrooloose/nerdtree'
+
+"syntax
+Plug 'pangloss/vim-javascript'
+
+"tags
+Plug 'ludovicchabant/vim-gutentags'
+
+"colorscheme
+Plug 'henrynewcomer/vim-theme-papaya'
+
+" Initialize plugin system
+call plug#end()
+
+"ale
+let g:ale_completion_enabled = 1
+
+" max line length that prettier will wrap on
+" Prettier default: 80
+let g:prettier#config#print_width = 80
+
+" number of spaces per indentation level
+" Prettier default: 2
+let g:prettier#config#tab_width = 4
+
+" use tabs over spaces
+" Prettier default: false
+let g:prettier#config#use_tabs = 'true'
+
+" print semicolons
+" Prettier default: true
+let g:prettier#config#semi = 'true'
+
+" single quotes over double quotes
+" Prettier default: false
+let g:prettier#config#single_quote = 'true'
+
+" print spaces between brackets
+" Prettier default: true
+let g:prettier#config#bracket_spacing = 'false'
+
+" put > on the last line instead of new line
+" Prettier default: false
+let g:prettier#config#jsx_bracket_same_line = 'false'
+
+" avoid|always
+" Prettier default: avoid
+let g:prettier#config#arrow_parens = 'avoid'
+
+" none|es5|all
+" Prettier default: none
+let g:prettier#config#trailing_comma = 'all'
+
+" flow|babylon|typescript|css|less|scss|json|graphql|markdown
+" Prettier default: babylon
+let g:prettier#config#parser = 'babylon'
+
+" cli-override|file-override|prefer-file
+"let g:prettier#config#config_precedence = 'prefer-file'
+
+" always|never|preserve
+"let g:prettier#config#prose_wrap = 'preserve'
