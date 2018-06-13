@@ -3,22 +3,49 @@ if &cp | set nocp | endif
 let s:cpo_save=&cpo
 set cpo&vim
 inoremap <silent> <Plug>CompletorTrigger 
+inoremap <expr> <S-Tab> pumvisible() ? "\" : "\<S-Tab>"
 imap <C-Right> gt
 imap <C-Left> gT
 noremap  :pop
+noremap  :Vexplore 
 noremap <silent>  : call AddHeader()
 nnoremap <NL> /<+.\++>c/+>/e
+map  :NERDTreeToggle
 nmap  :tabnew
+noremap  :q! 
 nmap  :tabclose
 vmap gx <Plug>NetrwBrowseXVis
 nmap gx <Plug>NetrwBrowseX
 noremap <silent> <Plug>CompletorTrigger <Nop>
+nnoremap <silent> <Plug>(ale_hover) :ALEHover
+nnoremap <silent> <Plug>(ale_find_references) :ALEFindReferences
+nnoremap <silent> <Plug>(ale_go_to_definition_in_tab) :ALEGoToDefinitionInTab
+nnoremap <silent> <Plug>(ale_go_to_definition) :ALEGoToDefinition
+nnoremap <silent> <Plug>(ale_fix) :ALEFix
+nnoremap <silent> <Plug>(ale_detail) :ALEDetail
+nnoremap <silent> <Plug>(ale_lint) :ALELint
+nnoremap <silent> <Plug>(ale_reset_buffer) :ALEResetBuffer
+nnoremap <silent> <Plug>(ale_disable_buffer) :ALEDisableBuffer
+nnoremap <silent> <Plug>(ale_enable_buffer) :ALEEnableBuffer
+nnoremap <silent> <Plug>(ale_toggle_buffer) :ALEToggleBuffer
+nnoremap <silent> <Plug>(ale_reset) :ALEReset
+nnoremap <silent> <Plug>(ale_disable) :ALEDisable
+nnoremap <silent> <Plug>(ale_enable) :ALEEnable
+nnoremap <silent> <Plug>(ale_toggle) :ALEToggle
+nnoremap <silent> <Plug>(ale_last) :ALELast
+nnoremap <silent> <Plug>(ale_first) :ALEFirst
+nnoremap <silent> <Plug>(ale_next_wrap) :ALENextWrap
+nnoremap <silent> <Plug>(ale_next) :ALENext
+nnoremap <silent> <Plug>(ale_previous_wrap) :ALEPreviousWrap
+nnoremap <silent> <Plug>(ale_previous) :ALEPrevious
 vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
 map <C-Right> gt
 map <C-Left> gT
 inoremap  :pop
+inoremap <expr> 	 pumvisible() ? "\" : "\	"
 inoremap <NL> /<+.\++>c/+>/e
+inoremap <expr>  pumvisible() ? "\\" : "\"
 imap  :tabnew
 imap  :tabclose
 iabbr { {}k$
@@ -28,13 +55,15 @@ set autoindent
 set background=dark
 set backspace=2
 set completeopt=preview,menuone,noselect
+set cpoptions=BceFs
 set fileencodings=ucs-bom,utf-8,default,latin1
 set hlsearch
 set incsearch
 set laststatus=2
 set modelines=0
 set mouse=a
-set runtimepath=~/.vim,~/Work/vimConfig/.vim/pack/plugins/start/tern_for_vim.vim,~/Work/vimConfig/.vim/pack/plugins/start/completor.vim,/usr/share/vim/vimfiles,/usr/share/vim/vim80,/usr/share/vim/vimfiles/after,~/.vim/after,~/Work/vimConfig/.vim/pack/plugins/start/tern_for_vim.vim/after
+set report=10000
+set runtimepath=~/.vim,~/Work/vimConfig/.vim/pack/plugins/start/vim-gutentags,~/Work/vimConfig/.vim/pack/plugins/start/tern_for_vim.vim,~/Work/vimConfig/.vim/pack/plugins/start/completor.vim,~/Work/vimConfig/.vim/pack/plugins/start/ale,/usr/share/vim/vimfiles,/usr/share/vim/vim80,/usr/share/vim/vimfiles/after,~/.vim/after,~/Work/vimConfig/.vim/pack/plugins/start/tern_for_vim.vim/after
 set shiftwidth=4
 set smartindent
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v]\ [LEN=%L]
@@ -48,7 +77,11 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 .vimrc
+badd +101 .vimrc
+badd +3 ctagsTest/function.h
+badd +0 main.c
+badd +1 test
+badd +0 README.md
 argglobal
 silent! argdel *
 $argadd .vimrc
@@ -156,7 +189,7 @@ setlocal syntax=vim
 endif
 setlocal tabstop=4
 setlocal tagcase=
-setlocal tags=
+setlocal tags=~/Work/vimConfig/tags,./tags,tags
 setlocal textwidth=0
 setlocal thesaurus=
 setlocal noundofile
@@ -165,12 +198,12 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 5 - ((1 * winheight(0) + 27) / 54)
+let s:l = 98 - ((36 * winheight(0) + 27) / 54)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-5
-normal! 011|
+98
+normal! 029|
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
