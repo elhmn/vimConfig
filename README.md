@@ -18,12 +18,16 @@ simply copy local_repo_path/.vimrc to your home directory
 cp local_repo_path/.vimrc ~/
 ```
 
-The create a copy local_repo_path/.vimsrcs to your hoeme directory
+Then create a copy local_repo_path/.{vim, vimsrcs} to your hoeme directory
 ```
-cp local_repo_path/.vimsrcs ~/
+cp local_repo_path/.{vim, vimsrcs} ~/
 ```
 
 Or create a symlink
 ```
-ln -s local_repo_path/.vimsrcs ~/.vimsrcs
+ln -s local_repo_path/.{vimrc, vim, vimsrcs} ~/
 ```
+
+Instal completion plugins :
+
+- stern for js (make js)
