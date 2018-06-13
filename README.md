@@ -31,3 +31,4 @@ ln -s local_repo_path/.{vimrc, vim, vimsrcs} ~/
 Instal completion plugins :
 
 - stern for js (make js)
+- copy .stern-project to your home directory
