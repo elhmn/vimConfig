@@ -48,8 +48,21 @@ function!		GetHeaderFromTemplate(headerFileName)
 	call s:ReplacePlaceholderString(l:variables["updatedate"], strftime("%a %b %d %H:%M:%S %Y"))
 endfunction
 
+"Check if header already exist
+function!		DoesHeaderExist()
+	execute "normal! gg"
+	if search('By:.*<.*>', 'c', 20) == 0
+		return 1
+	endif
+	return 0
+endfunction
+
 "Add a header to a file
 function!		AddHeader()
+	"Check if header already exist
+	if DoesHeaderExist() == 0
+		return 0
+	endif
 	let l:fileType = expand("%:e")
 	let	l:cHeaderFileName = "cHeader.tpl"
 
@@ -60,6 +73,7 @@ function!		AddHeader()
 	else
 		echom "unhandled file type is ".expand("%:e")
 	endif
+	return 1
 endfunction
 
 "Update header creation time
