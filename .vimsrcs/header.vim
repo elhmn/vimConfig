@@ -10,6 +10,7 @@ set cpo&vim				"go into nocompatible-mode
 "======================================
 
 let		s:templatePath = "~/.vimsrcs/templates"
+let		s:placeholders = {"filename":"<+FILENAME+>","author":"<+AUTHOR+>", "editor":"<+EDITOR+>", "creationdate":"<+CREATIONDATE+>", "updatedate":"<+UPDATEDATE+>"}
 let		s:author = "elhmn"
 
 "replace a template placeholder with another string
@@ -29,7 +30,6 @@ endfunction
 
 "Load header from specific template
 function!		GetHeaderFromTemplate(headerFileName)
-	let		l:variables = {"filename":"<+FILENAME+>","author":"<+AUTHOR+>", "editor":"<+EDITOR+>", "creationdate":"<+CREATIONDATE+>", "updatedate":"<+UPDATEDATE+>"}
 	let		l:editor = $USER
 
 	if IsMacOs() == 1
@@ -41,29 +41,38 @@ function!		GetHeaderFromTemplate(headerFileName)
 	echom "fileName : ".s:templatePath."/".a:headerFileName
 	execute ":r ".s:templatePath."/".a:headerFileName
 	execute "normal! ggdd\<c-o>\<c-o>"
-	call s:ReplacePlaceholderString(l:variables["filename"], expand("%:t"))
-	call s:ReplacePlaceholderString(l:variables["author"], s:author)
-	call s:ReplacePlaceholderString(l:variables["editor"], l:editor)
-	call s:ReplacePlaceholderString(l:variables["creationdate"], l:creationDate)
-	call s:ReplacePlaceholderString(l:variables["updatedate"], strftime("%a %b %d %H:%M:%S %Y"))
+	call s:ReplacePlaceholderString(s:placeholders["filename"], expand("%:t"))
+	call s:ReplacePlaceholderString(s:placeholders["author"], s:author)
+	call s:ReplacePlaceholderString(s:placeholders["editor"], l:editor)
+	call s:ReplacePlaceholderString(s:placeholders["creationdate"], l:creationDate)
+	call s:ReplacePlaceholderString(s:placeholders["updatedate"], strftime("%a %b %d %H:%M:%S %Y"))
 endfunction
 
 "Check if header already exist
 function!		DoesHeaderExist()
 	execute "normal! gg"
 	if search('By:.*<.*>', 'cn', 20) == 0
+		execute "normal! \<c-o>"
 		return 1
 	endif
+	execute "normal! \<c-o>"
 	return 0
 endfunction
 
-"Save update time
-function		SaveUpdateTime()
+"Save update data
+function		SaveUpdateData()
 	"Check if header already exist
-	if DoesHeaderExist() != 0
+	let		l:updators = []
+	let		l:editor = $USER
+	let		l:fileType = expand("%:e")
+
+	if DoesHeaderExist() != 0 || l:fileType =~# 'tpl'
 		return 0
 	endif
 		execute '%s/\(Updated: \)\(.*[0-9]\{2}:[0-9]\{2}:[0-9]\{2} [0-9]\{4}\)\(.*by.*\)/\1'.strftime("%a %b %d %H:%M:%S %Y").'\3/gi'
+		execute '%s/\(Updated: \)\(.*[0-9]\{2}:[0-9]\{2}:[0-9]\{2} [0-9]\{4}\)\(.*by \)\zs\(.\{'.len(s:placeholders["editor"]).'}\)\ze\(.*\)/'.s:placeholders["editor"].'/gi'
+	call s:ReplacePlaceholderString(s:placeholders["editor"], l:editor)
+	execute "normal! \<c-o>"
 	return 1
 endfunction
 
@@ -101,7 +110,7 @@ endfunction
 
 noremap <Sid>AddHeader : call <Sid>AddHeader()<cr>
 noremap <silent> <c-h><c-h> : call AddHeader()<cr>
-autocmd BufWritePost * call SaveUpdateTime()
+autocmd BufWritePost * call SaveUpdateData()
 
 "======================================
 
