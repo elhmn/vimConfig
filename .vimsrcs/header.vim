@@ -51,7 +51,7 @@ endfunction
 "Check if header already exist
 function!		DoesHeaderExist()
 	execute "normal! gg"
-	if search('By:.*<.*>', 'c', 20) == 0
+	if search('By:.*<.*>', 'cn', 20) == 0
 		return 1
 	endif
 	return 0
