@@ -57,6 +57,16 @@ function!		DoesHeaderExist()
 	return 0
 endfunction
 
+"Save update time
+function		SaveUpdateTime()
+	"Check if header already exist
+	if DoesHeaderExist() != 0
+		return 0
+	endif
+		execute '%s/\(Updated: \)\(.*[0-9]\{2}:[0-9]\{2}:[0-9]\{2} [0-9]\{4}\)\(.*by.*\)/\1'.strftime("%a %b %d %H:%M:%S %Y").'\3/gi'
+	return 1
+endfunction
+
 "Add a header to a file
 function!		AddHeader()
 	"Check if header already exist
@@ -91,6 +101,7 @@ endfunction
 
 noremap <Sid>AddHeader : call <Sid>AddHeader()<cr>
 noremap <silent> <c-h><c-h> : call AddHeader()<cr>
+autocmd BufWritePost * call SaveUpdateTime()
 
 "======================================
 
