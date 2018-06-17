@@ -1,3 +1,15 @@
+" ************************************************************************** "
+"                                                                            "
+"   sample_script.vim                                                        "
+"                                                                            "
+"   By: elhmn <www.elhmn.com>                                                "
+"             <nleme@live.fr>                                                "
+"                                                                            "
+"   Created: Wed Jun 13 20:23:54 2018                        by elhmn        "
+"   Updated: Sun Jun 17 19:12:24 2018                        by elhmn        "
+"                                                                            "
+" ************************************************************************** "
+
 if exists("loaded_myscript")
 	finish "stop loading the script"
 	"or instead delete/unload function contained in the script

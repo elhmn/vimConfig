@@ -1,3 +1,15 @@
+" ************************************************************************** "
+"                                                                            "
+"   header.vim                                                               "
+"                                                                            "
+"   By: elhmn <www.elhmn.com>                                                "
+"             <nleme@live.fr>                                                "
+"                                                                            "
+"   Created: Sun Jun 17 19:09:23 2018                        by elhmn        "
+"   Updated: Sun Jun 17 19:11:43 2018                        by elhmn        "
+"                                                                            "
+" ************************************************************************** "
+
 if exists("header_loaded")
 	finish "stop loading the header loaded"
 endif
@@ -12,6 +24,7 @@ set cpo&vim				"go into nocompatible-mode
 let		s:templatePath = "~/.vimsrcs/templates"
 let		s:placeholders = {"filename":"<+FILENAME+>","author":"<+AUTHOR+>", "editor":"<+EDITOR+>", "creationdate":"<+CREATIONDATE+>", "updatedate":"<+UPDATEDATE+>"}
 let		s:author = "elhmn"
+let		s:templateMaxSize = 12
 
 "replace a template placeholder with another string
 "str : string to replace
@@ -22,10 +35,11 @@ function		s:ReplacePlaceholderString(str, src)
 	for e in range(0, len(a:str) - 1)
 		let l:replace .= " "
 	endfor
-	execute "normal! /".a:str."\<cr>"
-	execute "%s/".a:str."/".l:replace."/gi"
+	execute "normal /".a:str."\<cr>"
+	execute "1,".s:templateMaxSize."s/".a:str."/".l:replace."/gi"
 	execute "normal! \<c-o>R".a:src
 	unlet l:replace
+	execute "normal! gg"
 endfunction
 
 "Load header from specific template
@@ -40,7 +54,7 @@ function!		GetHeaderFromTemplate(headerFileName)
 
 	echom "fileName : ".s:templatePath."/".a:headerFileName
 	execute ":r ".s:templatePath."/".a:headerFileName
-	execute "normal! ggdd\<c-o>\<c-o>"
+	execute "normal ggdd"
 	call s:ReplacePlaceholderString(s:placeholders["filename"], expand("%:t"))
 	call s:ReplacePlaceholderString(s:placeholders["author"], s:author)
 	call s:ReplacePlaceholderString(s:placeholders["editor"], l:editor)
@@ -51,7 +65,7 @@ endfunction
 "Check if header already exist
 function!		DoesHeaderExist()
 	execute "normal! gg"
-	if search('By:.*<.*>', 'cn', 20) == 0
+	if search('By:.*<.*>', 'cn', s:templateMaxSize) == 0
 		execute "normal! \<c-o>"
 		return 1
 	endif
@@ -64,15 +78,14 @@ function		SaveUpdateData()
 	"Check if header already exist
 	let		l:updators = []
 	let		l:editor = $USER
-	let		l:fileType = expand("%:e")
 
-	if DoesHeaderExist() != 0 || l:fileType =~# 'tpl'
+	if DoesHeaderExist() != 0
 		return 0
 	endif
-		execute '%s/\(Updated: \)\(.*[0-9]\{2}:[0-9]\{2}:[0-9]\{2} [0-9]\{4}\)\(.*by.*\)/\1'.strftime("%a %b %d %H:%M:%S %Y").'\3/gi'
-		execute '%s/\(Updated: \)\(.*[0-9]\{2}:[0-9]\{2}:[0-9]\{2} [0-9]\{4}\)\(.*by \)\zs\(.\{'.len(s:placeholders["editor"]).'}\)\ze\(.*\)/'.s:placeholders["editor"].'/gi'
+		execute ':1,'.s:templateMaxSize.'s/\(Updated: \)\(.*[0-9]\{2}:[0-9]\{2}:[0-9]\{2} [0-9]\{4}\)\(.*by.*\)/\1'.strftime("%a %b %d %H:%M:%S %Y").'\3/gi'
+		execute ':1,'.s:templateMaxSize.'s/\(Updated: \)\(.*[0-9]\{2}:[0-9]\{2}:[0-9]\{2} [0-9]\{4}\)\(.*by \)\zs\(.\{'.len(s:placeholders["editor"]).'}\)\ze\(.*\)/'.s:placeholders["editor"].'/gi'
 	call s:ReplacePlaceholderString(s:placeholders["editor"], l:editor)
-	execute "normal! \<c-o>"
+	execute "normal! \<c-o>\<c-o>"
 	return 1
 endfunction
 
@@ -83,16 +96,22 @@ function!		AddHeader()
 		return 0
 	endif
 	let l:fileType = expand("%:e")
-	let	l:cHeaderFileName = "cHeader.tpl"
+	let l:fileName = expand("%:t")
+	let l:cHeaderFile = "cHeader.tpl"
+	let l:hashHeaderFile = "hashHeader.tpl"
+	let l:vimHeaderFile = "vimHeader.tpl"
+	let l:htmlHeaderFile = "htmlHeader.tpl"
+	let l:headerFile = l:hashHeaderFile
 
-	if l:fileType =~# 'c\|cpp\|php\|js\|h\|hpp\|cc'
-		execute "normal! ggO"
-		call GetHeaderFromTemplate(l:cHeaderFileName)
-"		echo "file type is c"
-	else
-		echom "unhandled file type is ".expand("%:e")
+	if l:fileType =~# '^\(c\|cpp\|php\|js\|h\|hpp\|cc\)$'
+		let l:headerFile = l:cHeaderFile
+	elseif l:fileType =~# '^\(html\)$'
+		let l:headerFile = l:htmlHeaderFile
+	elseif  l:fileName =~# '^.vimrc$' || l:fileType =~# '^\(vim\)$'
+		let l:headerFile = l:vimHeaderFile
 	endif
-	return 1
+	execute "normal! ggO"
+	call GetHeaderFromTemplate(l:headerFile)
 endfunction
 
 "Update header creation time

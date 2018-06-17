@@ -1,8 +1,20 @@
+" ************************************************************************** "
+"                                                                            "
+"   .vimrc                                                                   "
+"                                                                            "
+"   By: elhmn <www.elhmn.com>                                                "
+"             <nleme@live.fr>                                                "
+"                                                                            "
+"   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
+"   Updated: Sun Jun 17 19:12:53 2018                        by elhmn        "
+"                                                                            "
+" ************************************************************************** "
+
 "My vim config
 
 "Style
 syntax on
-set mouse=a
+"set mouse=a
 set hls
 set number
 set incsearch
