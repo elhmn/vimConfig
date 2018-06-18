@@ -21,6 +21,12 @@ set incsearch
 set foldenable
 set foldmethod=syntax
 source ~/.vimsrcs/custom_colors.vim
+set hls
+set number
+set incsearch
+set foldenable
+set foldmethod=syntax
+source ~/.vimsrcs/custom_colors.vim
 
 "Indentation
 set shiftwidth=4
@@ -60,6 +66,12 @@ match ErrorMsg #\%>80v.\+#
 "Match line ending with \t or space
 2match ErrorMsg #[ \t]\+$#
 
+"completions code
+inoremap {<CR>  {<CR>}<Esc>O
+inoremap (<space> ()<esc>ha
+inoremap "<space> ""<esc>ha
+inoremap '<space> ''<esc>ha
+
 "Statusline
 set laststatus=2
 set statusline=%f\ [FORMAT=%{&ff}]\ [POS=%04l,%04v]\ [LEN=%L]
@@ -90,7 +102,7 @@ endfunction
 source ~/.vimsrcs/header.vim
 
 "Completion plugins
-let g:completor_node_binary = ''
+let g:completor_node_binary = '/usr/local/bin/node'
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
@@ -168,8 +180,44 @@ Plug 'ludovicchabant/vim-gutentags'
 "colorscheme
 Plug 'henrynewcomer/vim-theme-papaya'
 
+"Comments
+Plug 'scrooloose/nerdcommenter'
+
+"Html5
+Plug 'othree/html5.vim'
+
+"Vim markdown
+Plug 'plasticboy/vim-markdown'
+
+"html emmet
+Plug 'mattn/emmet-vim'
+
+
 " Initialize plugin system
 call plug#end()
+
+"emmet
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,javascript,php EmmetInstall
+
+"redefine triggerkey
+let g:user_emmet_leader_key='<C-Y>'
+
+"html5
+
+"Disable event-handler attributes support:
+" let g:html5_event_handler_attributes_complete = 0
+
+" Disable RDFa attributes support:
+" let g:html5_rdfa_attributes_complete = 0
+
+"Disable microdata attributes support:
+" let g:html5_microdata_attributes_complete = 0
+
+"Disable WAI-ARIA attribute support:
+" let g:html5_aria_attributes_complete = 0
+
+
 
 "ale
 let g:ale_completion_enabled = 1
@@ -219,3 +267,25 @@ let g:prettier#config#parser = 'babylon'
 
 " always|never|preserve
 "let g:prettier#config#prose_wrap = 'preserve'
+
+"NErdCommenter
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+"let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+"let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
