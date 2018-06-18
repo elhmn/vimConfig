@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Sun Jun 17 19:12:53 2018                        by elhmn        "
+"   Updated: Mon Jun 18 10:55:04 2018                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -61,10 +61,10 @@ noremap <c-b> :pop<cr>
 inoremap <c-b> <esc>:pop<cr>
 
 "Match Limit column number
-match ErrorMsg #\%>80v.\+#
+autocmd BufEnter * match ErrorMsg #\%>80v.\+#
 
 "Match line ending with \t or space
-2match ErrorMsg #[ \t]\+$#
+ autocmd BufEnter * 2match ErrorMsg #[ \t]\+$#
 
 "completions code
 inoremap {<CR>  {<CR>}<Esc>O
@@ -98,8 +98,9 @@ function! LoadSession()
 	endif
 endfunction
 
-"vim scripts test
+"vim scripts header
 source ~/.vimsrcs/header.vim
+source ~/.vimsrcs/comments.vim
 
 "Completion plugins
 let g:completor_node_binary = '/usr/local/bin/node'
