@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Mon Jun 18 10:55:04 2018                        by bmbarga      "
+"   Updated: Tue Jun 19 22:02:52 2018                        by root         "
 "                                                                            "
 " ************************************************************************** "
 
@@ -20,19 +20,13 @@ set number
 set incsearch
 set foldenable
 set foldmethod=syntax
-source ~/.vimsrcs/custom_colors.vim
-set hls
-set number
-set incsearch
-set foldenable
-set foldmethod=syntax
-source ~/.vimsrcs/custom_colors.vim
 
 "Indentation
 set shiftwidth=4
 set tabstop=4
 set autoindent
 set smartindent
+
 
 "Command map
 
@@ -158,6 +152,8 @@ Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 
+"Colorschem
+Plug 'fcpg/vim-orbital'
 
 "for lint
 Plug 'w0rp/ale'
@@ -177,9 +173,6 @@ Plug 'pangloss/vim-javascript'
 
 "tags
 Plug 'ludovicchabant/vim-gutentags'
-
-"colorscheme
-Plug 'henrynewcomer/vim-theme-papaya'
 
 "Comments
 Plug 'scrooloose/nerdcommenter'
@@ -290,3 +283,6 @@ let g:NERDCommentEmptyLines = 1
 
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
+
+"Style color scheme
+source ~/.vimsrcs/custom_colors.vim

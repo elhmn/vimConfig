@@ -6,10 +6,10 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Wed Jun 13 20:23:54 2018                        by elhmn        "
-"   Updated: Sun Jun 17 19:12:18 2018                        by elhmn        "
+"   Updated: Tue Jun 19 21:57:38 2018                        by elhmn        "
 "                                                                            "
 " ************************************************************************** "
 
-colorscheme slate
+colorscheme orbital
 set cursorline
-highlight CursorLine ctermbg=darkblue cterm=NONE
+"highlight CursorLine ctermbg=NONE cterm=NONE
