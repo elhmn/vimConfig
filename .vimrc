@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Wed Jun 20 10:03:59 2018                        by bmbarga      "
+"   Updated: Wed Jun 20 12:41:45 2018                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -288,4 +288,8 @@ let g:NERDTrimTrailingWhitespace = 1
 source ~/.vimsrcs/custom_colors.vim
 
 "quickfix search on two level
-map fw :execute "vimgrep /" . expand("<cword>") . "/g ../../**/*" <Bar> cw<CR>
+command! -nargs=+ Silent
+\   execute 'silent <args>'
+\ | redraw!
+
+map fw :Silent execute "grep -RE ".expand("<cword>")." . " <Bar> cw<CR>

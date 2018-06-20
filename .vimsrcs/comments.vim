@@ -72,7 +72,7 @@ function!		RemoveComments(sandwich)
 	elseif  l:fileName =~# '^.vimrc$' || l:fileType =~# '^\(vim\)$'
 		let	l:type[0] = s:typeStart[4]
 	endif
-	execute '.s/\('.l:type[0].'\)*'.s:spaceL.'*\(.*\)'.l:type[1].'/\2/gi'
+	execute '.s/\('.l:type[0].'\)*'.s:spaceL.'\(.*\)'.l:type[1].'/\2/gi'
 endfunction
 
 "Add debug comments ====================>
