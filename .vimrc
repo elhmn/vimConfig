@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Tue Jun 19 22:02:52 2018                        by root         "
+"   Updated: Wed Jun 20 10:03:59 2018                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -286,3 +286,6 @@ let g:NERDTrimTrailingWhitespace = 1
 
 "Style color scheme
 source ~/.vimsrcs/custom_colors.vim
+
+"quickfix search on two level
+map fw :execute "vimgrep /" . expand("<cword>") . "/g ../../**/*" <Bar> cw<CR>
