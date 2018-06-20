@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Wed Jun 20 17:46:24 2018                        by bmbarga      "
+"   Updated: Wed Jun 20 18:12:47 2018                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -186,6 +186,9 @@ Plug 'plasticboy/vim-markdown'
 "html emmet
 Plug 'mattn/emmet-vim'
 
+"Find files
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -293,6 +296,19 @@ command! -nargs=+ Silent
 \ | redraw!
 
 map fw :Silent execute "grep -RE ".expand("<cword>")." . " <Bar> cw<CR>
+
+"FZF
+map ff :Silent execute "FZF" <cr>
+
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~20%' }
+
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
 "must be uncommented only for editing bw-frontend projects
 "set suffixesadd+=.js
