@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Wed Jun 20 12:41:45 2018                        by bmbarga      "
+"   Updated: Wed Jun 20 17:46:24 2018                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -293,3 +293,10 @@ command! -nargs=+ Silent
 \ | redraw!
 
 map fw :Silent execute "grep -RE ".expand("<cword>")." . " <Bar> cw<CR>
+
+"must be uncommented only for editing bw-frontend projects
+"set suffixesadd+=.js
+"set suffixesadd+=.template
+"set suffixesadd+=.css
+
+"set path+=public

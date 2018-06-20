@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created:                                                 by elhmn        "
-"   Updated: Tue Jun 19 12:08:24 2018                        by bmbarga      "
+"   Updated: Wed Jun 20 17:53:53 2018                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -72,7 +72,7 @@ function!		RemoveComments(sandwich)
 	elseif  l:fileName =~# '^.vimrc$' || l:fileType =~# '^\(vim\)$'
 		let	l:type[0] = s:typeStart[4]
 	endif
-	execute '.s/\('.l:type[0].'\)*'.s:spaceL.'\(.*\)'.l:type[1].'/\2/gi'
+	execute '.s/\('.l:type[0].'\)\+\('.s:spaceL.'\)\?\(.*\)'.l:type[1].'/\3/gi'
 endfunction
 
 "Add debug comments ====================>
