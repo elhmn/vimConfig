@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 19:09:23 2018                        by elhmn        "
-"   Updated: Tue Jun 19 12:07:55 2018                        by bmbarga      "
+"   Updated: Sat Jun 23 11:50:33 2018                        by elhmn        "
 "                                                                            "
 " ************************************************************************** "
 
@@ -65,6 +65,7 @@ endfunction
 "Check if header already exist
 function!		DoesHeaderExist()
 	execute "normal! gg"
+
 	if search('By:.*<.*>', 'cn', s:templateMaxSize) == 0
 		execute "normal! \<c-o>"
 		return 1
@@ -79,6 +80,9 @@ function		SaveUpdateData()
 	let		l:updators = []
 	let		l:editor = $USER
 
+	if expand("%:e") =~# "^tpl$"
+		return 0
+	endif
 	if DoesHeaderExist() != 0
 		return 0
 	endif
@@ -98,13 +102,16 @@ function!		AddHeader()
 	let l:fileType = expand("%:e")
 	let l:fileName = expand("%:t")
 	let l:cHeaderFile = "cHeader.tpl"
+	let l:phpHeaderFile = "phpHeader.tpl"
 	let l:hashHeaderFile = "hashHeader.tpl"
 	let l:vimHeaderFile = "vimHeader.tpl"
 	let l:htmlHeaderFile = "htmlHeader.tpl"
 	let l:headerFile = l:hashHeaderFile
 
-	if l:fileType =~# '^\(c\|cpp\|php\|js\|h\|hpp\|cc\|css\)$'
+	if l:fileType =~# '^\(c\|cpp\|js\|h\|hpp\|cc\|css\)$'
 		let l:headerFile = l:cHeaderFile
+	elseif l:fileType =~# '^\(php\)$'
+		let l:headerFile = l:phpHeaderFile
 	elseif l:fileType =~# '^\(html\)$'
 		let l:headerFile = l:htmlHeaderFile
 	elseif  l:fileName =~# '^.vimrc$' || l:fileType =~# '^\(vim\)$'
