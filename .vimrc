@@ -6,11 +6,15 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Thu Jun 21 10:42:20 2018                        by bmbarga      "
+"   Updated: Sun Jun 24 09:12:32 2018                        by elhmn        "
 "                                                                            "
 " ************************************************************************** "
 
 "My vim config
+
+
+"disable beep
+set noeb vb t_vb=
 
 "Style
 syntax on
@@ -146,6 +150,9 @@ let g:syntastic_javascript_eslint_exec = 'eslint_d'
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
+
+"php completion
+" Plug 'shawncplus/phpcomplete.vim'
 
 " post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'prettier/vim-prettier', {
