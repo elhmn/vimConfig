@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Sun Jun 24 09:12:32 2018                        by elhmn        "
+"   Updated: Sat Jun 30 11:23:43 2018                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -66,9 +66,9 @@ autocmd BufEnter * match ErrorMsg #\%>80v.\+#
 
 "completions code
 inoremap {<CR>  {<CR>}<Esc>O
-inoremap (<space> ()<esc>ha
-inoremap "<space> ""<esc>ha
-inoremap '<space> ''<esc>ha
+inoremap ( ()<esc>ha
+inoremap " ""<esc>ha
+inoremap ' ''<esc>ha
 
 "Statusline
 set laststatus=2
