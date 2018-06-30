@@ -102,8 +102,8 @@ source ~/.vimsrcs/comments.vim
 
 "Completion plugins
 let g:completor_node_binary = '/usr/local/bin/node'
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
 "NERDTree
