@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Sat Jun 30 11:23:43 2018                        by bmbarga      "
+"   Updated: Sat Jun 30 12:12:32 2018                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -63,6 +63,10 @@ autocmd BufEnter * match ErrorMsg #\%>80v.\+#
 
 "Match line ending with \t or space
  autocmd BufEnter * 2match ErrorMsg #[ \t]\+$#
+
+"Clean spaces after end of line
+autocmd BufWritePost * execute ':silent! %s/[ \t]\+$//g'
+nnoremap <leader>l :%s/[ \t]\+$//g<cr>
 
 "completions code
 inoremap {<CR>  {<CR>}<Esc>O
