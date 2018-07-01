@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Sat Jun 30 12:12:32 2018                        by bmbarga      "
+"   Updated: Sat Jun 30 13:54:30 2018                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -70,9 +70,9 @@ nnoremap <leader>l :%s/[ \t]\+$//g<cr>
 
 "completions code
 inoremap {<CR>  {<CR>}<Esc>O
-inoremap ( ()<esc>ha
-inoremap " ""<esc>ha
-inoremap ' ''<esc>ha
+" inoremap ( ()<esc>ha
+" inoremap " ""<esc>ha
+" inoremap ' ''<esc>ha
 
 "Statusline
 set laststatus=2
@@ -156,7 +156,7 @@ let g:syntastic_javascript_eslint_exec = 'eslint_d'
 call plug#begin('~/.vim/plugged')
 
 "php completion
-" Plug 'shawncplus/phpcomplete.vim'
+""Plug 'shawncplus/phpcomplete.vim'
 
 " post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'prettier/vim-prettier', {
@@ -200,6 +200,7 @@ Plug 'mattn/emmet-vim'
 "Find files
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
 
 " Initialize plugin system
 call plug#end()
