@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Sat Jun 30 13:54:30 2018                        by bmbarga      "
+"   Updated: Thu Aug 09 15:03:42 2018                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -30,6 +30,9 @@ set shiftwidth=4
 set tabstop=4
 set autoindent
 set smartindent
+
+" set cindent
+autocmd FileType javascript set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 
 "Command map
@@ -159,9 +162,19 @@ call plug#begin('~/.vim/plugged')
 ""Plug 'shawncplus/phpcomplete.vim'
 
 " post install (yarn install | npm install) then load plugin only for editing supported files
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+" Don't forget to change add --no--editorconfig for single_quote
+"
+"            \ get(a:config, 'configPrecedence', g:prettier#config#config_precedence) .
+"            \ ' --stdin-filepath ' .
+"            \ simplify(expand("%:p")) .
+" +          \ ' --no-editorconfig '.
+" +          \ ' --loglevel "error" '.
+"            \ ' --stdin '
+"    return l:cmd
+"
+" Plug 'prettier/vim-prettier', {
+"   \ 'do': 'yarn install',
+"   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 
 "Colorschem
 Plug 'fcpg/vim-orbital'
@@ -230,46 +243,49 @@ let g:user_emmet_leader_key='<C-Y>'
 
 "ale
 let g:ale_completion_enabled = 1
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['eslint']
+let g:ale_fix_on_save = 1
 
 " max line length that prettier will wrap on
 " Prettier default: 80
-let g:prettier#config#print_width = 80
+"let g:prettier#config#print_width = 80
 
 " number of spaces per indentation level
 " Prettier default: 2
-let g:prettier#config#tab_width = 4
+" let g:prettier#config#tab_width = 4
 
 " use tabs over spaces
 " Prettier default: false
-let g:prettier#config#use_tabs = 'true'
+" let g:prettier#config#use_tabs = 'false'
 
 " print semicolons
 " Prettier default: true
-let g:prettier#config#semi = 'true'
+" let g:prettier#config#semi = 'true'
 
 " single quotes over double quotes
 " Prettier default: false
-let g:prettier#config#single_quote = 'true'
+" let g:prettier#config#single_quote = 'true'
 
 " print spaces between brackets
 " Prettier default: true
-let g:prettier#config#bracket_spacing = 'false'
+" let g:prettier#config#bracket_spacing = 'false'
 
 " put > on the last line instead of new line
 " Prettier default: false
-let g:prettier#config#jsx_bracket_same_line = 'false'
+" let g:prettier#config#jsx_bracket_same_line = 'false'
 
 " avoid|always
 " Prettier default: avoid
-let g:prettier#config#arrow_parens = 'avoid'
+" let g:prettier#config#arrow_parens = 'avoid'
 
 " none|es5|all
 " Prettier default: none
-let g:prettier#config#trailing_comma = 'all'
+" let g:prettier#config#trailing_comma = 'all'
 
 " flow|babylon|typescript|css|less|scss|json|graphql|markdown
 " Prettier default: babylon
-let g:prettier#config#parser = 'babylon'
+" let g:prettier#config#parser = 'babylon'
 
 " cli-override|file-override|prefer-file
 "let g:prettier#config#config_precedence = 'prefer-file'
