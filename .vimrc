@@ -6,12 +6,11 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Thu Aug 09 15:03:42 2018                        by bmbarga      "
+"   Updated: Thu Dec 06 11:08:13 2018                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
 "My vim config
-
 
 "disable beep
 set noeb vb t_vb=
@@ -26,14 +25,18 @@ set foldenable
 set foldmethod=syntax
 
 "Indentation
+set noexpandtab
+set copyindent
+set preserveindent
+set softtabstop=0
 set shiftwidth=4
 set tabstop=4
 set autoindent
 set smartindent
 
 " set cindent
-autocmd FileType javascript set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
-
+autocmd FileType javascript setlocal tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+autocmd FileType python setlocal softtabstop=4 tabstop=4 noexpandtab shiftwidth=4
 
 "Command map
 
@@ -245,7 +248,7 @@ let g:user_emmet_leader_key='<C-Y>'
 let g:ale_completion_enabled = 1
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['eslint']
-let g:ale_fix_on_save = 1
+" let g:ale_fix_on_save = 1
 
 " max line length that prettier will wrap on
 " Prettier default: 80
@@ -352,3 +355,6 @@ set backspace=2 " make backspace work like most other programs
 set exrc
 
 set secure
+
+filetype indent off
+filetype plugin indent off
