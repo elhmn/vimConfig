@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Thu Dec 06 11:08:13 2018                        by bmbarga      "
+"   Updated: Fri Dec 07 16:55:48 2018                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -33,10 +33,12 @@ set shiftwidth=4
 set tabstop=4
 set autoindent
 set smartindent
+set smarttab
+set listchars=tab:\--
 
 " set cindent
 autocmd FileType javascript setlocal tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
-autocmd FileType python setlocal softtabstop=4 tabstop=4 noexpandtab shiftwidth=4
+autocmd FileType python setlocal softtabstop=4 tabstop=4 noexpandtab shiftwidth=4 list
 
 "Command map
 
