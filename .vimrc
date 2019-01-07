@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Fri Dec 07 16:55:48 2018                        by bmbarga      "
+"   Updated: Mon Jan 07 12:07:55 2019                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -153,8 +153,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:javascript_plugin_jsdoc = 1
 
 "eslint_d
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = 'eslint_d'
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_eslint_exec = 'eslint_d'
 
 "vim plug : plugin manager
 
@@ -186,7 +186,6 @@ Plug 'fcpg/vim-orbital'
 
 "for lint
 Plug 'w0rp/ale'
-"Plug 'joestelmach/lint.vim'
 
 "tern
 Plug 'marijnh/tern_for_vim'
@@ -244,13 +243,15 @@ let g:user_emmet_leader_key='<C-Y>'
 "Disable WAI-ARIA attribute support:
 " let g:html5_aria_attributes_complete = 0
 
-
-
 "ale
 let g:ale_completion_enabled = 1
+
 let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['eslint']
+let g:ale_fixers['javascript'] = ['prettier', 'eslint']
 " let g:ale_fix_on_save = 1
+
+let g:ale_linters = {}
+let g:ale_linters['javascript'] = ['eslint']
 
 " max line length that prettier will wrap on
 " Prettier default: 80
