@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Mon Jan 07 12:07:55 2019                        by bmbarga      "
+"   Updated: Mon Jan 14 17:21:33 2019                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -14,6 +14,7 @@
 
 "disable beep
 set noeb vb t_vb=
+
 
 "Style
 syntax on
@@ -354,10 +355,9 @@ let g:fzf_action = {
 set backspace=2 " make backspace work like most other programs
 "set backspace=indent,eol,start
 
-"Always at end of vimrc
-set exrc
-
-set secure
 
 filetype indent off
 filetype plugin indent off
+
+"Always at end of vimrc
+set exrc
