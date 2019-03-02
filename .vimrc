@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Mon Jan 14 17:21:33 2019                        by bmbarga      "
+"   Updated: Fri Mar 01 00:28:12 2019                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -196,6 +196,9 @@ Plug 'maralla/completor.vim' , { 'do': 'make js'}
 
 "Tree browser
 Plug 'scrooloose/nerdtree'
+
+"Go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 "syntax
 Plug 'pangloss/vim-javascript'

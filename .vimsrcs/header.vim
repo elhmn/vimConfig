@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 19:09:23 2018                        by elhmn        "
-"   Updated: Sat Jun 23 11:50:33 2018                        by elhmn        "
+"   Updated: Sat Mar 02 07:45:37 2019                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -108,7 +108,7 @@ function!		AddHeader()
 	let l:htmlHeaderFile = "htmlHeader.tpl"
 	let l:headerFile = l:hashHeaderFile
 
-	if l:fileType =~# '^\(c\|cpp\|js\|h\|hpp\|cc\|css\)$'
+	if l:fileType =~# '^\(c\|cpp\|js\|h\|hpp\|cc\|css\|go\)$'
 		let l:headerFile = l:cHeaderFile
 	elseif l:fileType =~# '^\(php\)$'
 		let l:headerFile = l:phpHeaderFile

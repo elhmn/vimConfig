@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created:                                                 by elhmn        "
-"   Updated: Wed Jun 20 17:53:53 2018                        by bmbarga      "
+"   Updated: Sat Mar 02 07:49:11 2019                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -35,7 +35,7 @@ function!		Comments(sandwich)
 "	type[0] -> start character, type[1] -> end character
 	let		l:type = [s:typeStart[1], '']
 
-	if l:fileType =~# '^\(c\|cpp\|php\|js\|h\|hpp\|cc\|css\)$'
+	if l:fileType =~# '^\(c\|cpp\|php\|js\|h\|hpp\|cc\|css\|go\)$'
 		if a:sandwich == 1
 			let	l:type[0] = s:typeStart[2]
 			let	l:type[1] = s:typeEnd[0]
@@ -59,7 +59,7 @@ function!		RemoveComments(sandwich)
 "	type[0] -> start character, type[1] -> end character
 	let		l:type = [s:typeStart[1], '']
 
-	if l:fileType =~# '^\(c\|cpp\|php\|js\|h\|hpp\|cc\|css\)$'
+	if l:fileType =~# '^\(c\|cpp\|php\|js\|h\|hpp\|cc\|css\|go\)$'
 		if a:sandwich == 1
 			let	l:type[0] = s:typeStart[2]
 			let	l:type[1] = s:typeEnd[0]
@@ -84,7 +84,7 @@ function!		DebugComments(sandwich)
 "	type[0] -> start character, type[1] -> end character
 	let		l:type = [s:typeStart[1], '']
 
-	if l:fileType =~# '^\(c\|cpp\|php\|js\|h\|hpp\|cc\|css\)$'
+	if l:fileType =~# '^\(c\|cpp\|php\|js\|h\|hpp\|cc\|css\|go\)$'
 		if a:sandwich == 1
 			let	l:type[0] = s:typeStart[2]
 			let	l:type[1] = s:typeEnd[0]
@@ -108,7 +108,7 @@ function!		RemoveDebugComments(sandwich)
 "	type[0] -> start character, type[1] -> end character
 	let		l:type = [s:typeStart[1], '']
 
-	if l:fileType =~# '^\(c\|cpp\|php\|js\|h\|hpp\|cc\|css\)$'
+	if l:fileType =~# '^\(c\|cpp\|php\|js\|h\|hpp\|cc\|css\|go\)$'
 		if a:sandwich == 1
 			let	l:type[0] = s:typeStart[2]
 			let	l:type[1] = s:typeEnd[0]
