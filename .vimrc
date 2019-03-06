@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Fri Mar 01 00:28:12 2019                        by bmbarga      "
+"   Updated: Wed Mar 06 12:43:13 2019                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -115,6 +115,8 @@ source ~/.vimsrcs/comments.vim
 
 "Completion plugins
 let g:completor_node_binary = '/usr/local/bin/node'
+"If go completion does not work change gocode bin path
+let g:completor_gocode_binary = '~/go/bin/gocode'
 inoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
