@@ -364,3 +364,4 @@ filetype plugin indent off
 
 "Always at end of vimrc
 set exrc
+set secure
