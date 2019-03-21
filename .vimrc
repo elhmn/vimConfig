@@ -52,12 +52,10 @@ map <c-right>	gt
 imap <c-right>	<esc>gt
 
 "new tab
-nmap <c-t>	:tabnew<cr>
-imap <c-t>	<esc>:tabnew<cr>
+nmap ot	:tabnew<cr>
 
 "close tab
-nmap <c-x><c-t>	:tabclose<cr>
-imap <c-x><c-t>	<esc>:tabclose<cr>
+nmap ct	:tabclose<cr>
 
 "move to place templates placeholders
 nnoremap <c-j> /<+.\++><cr>c/+>/e<cr>
