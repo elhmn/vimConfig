@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Wed Mar 06 12:43:13 2019                        by bmbarga      "
+"   Updated: Thu Mar 21 11:16:58 2019                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -369,6 +369,8 @@ set backspace=2 " make backspace work like most other programs
 
 filetype indent off
 filetype plugin indent off
+" Enable filetype plugins
+filetype plugin on
 
 "Always at end of vimrc
 set exrc
