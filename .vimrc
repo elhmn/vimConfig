@@ -21,6 +21,7 @@ syntax on
 "set mouse=a
 set hls
 set number
+set relativenumber
 set incsearch
 set foldenable
 set foldmethod=syntax
