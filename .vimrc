@@ -185,6 +185,7 @@ call plug#begin('~/.vim/plugged')
 
 "Colorschem
 Plug 'fcpg/vim-orbital'
+Plug 'jacoborus/tender.vim'
 
 "for lint
 Plug 'w0rp/ale'

@@ -11,5 +11,6 @@
 " ************************************************************************** "
 
 colorscheme orbital
+" colorscheme tender
 set cursorline
 "highlight CursorLine ctermbg=NONE cterm=NONE
