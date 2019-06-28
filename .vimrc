@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Thu Mar 21 11:16:58 2019                        by bmbarga      "
+"   Updated: Fri Jun 28 14:21:02 2019                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -230,6 +230,9 @@ Plug 'mattn/emmet-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+"vim-go config
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 
 " Initialize plugin system
 call plug#end()
