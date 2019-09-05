@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Fri Jun 28 14:21:02 2019                        by bmbarga      "
+"   Updated: Thu Sep 05 10:42:22 2019                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -201,6 +201,7 @@ Plug 'scrooloose/nerdtree'
 
 "Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'ctrlpvim/ctrlp.vim'
 
 "syntax
 Plug 'pangloss/vim-javascript'
@@ -233,6 +234,15 @@ Plug 'junegunn/fzf.vim'
 "vim-go config
 let g:go_metalinter_autosave = 1
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_fmt_command = "goimports"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_decls_includes = "func,type"
 
 " Initialize plugin system
 call plug#end()
