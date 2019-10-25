@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Thu Sep 05 10:42:22 2019                        by bmbarga      "
+"   Updated: Fri Oct 25 10:47:46 2019                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -41,6 +41,10 @@ set listchars=tab:\--
 " set cindent
 autocmd FileType javascript setlocal tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 autocmd FileType python setlocal softtabstop=4 tabstop=4 noexpandtab shiftwidth=4 list
+
+" add yaml stuffs
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 "Command map
 
