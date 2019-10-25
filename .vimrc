@@ -210,6 +210,10 @@ Plug 'ctrlpvim/ctrlp.vim'
 "syntax
 Plug 'pangloss/vim-javascript'
 
+"git
+Plug 'zivyangll/git-blame.vim'
+Plug 'tpope/vim-fugitive'
+
 "tags
 Plug 'ludovicchabant/vim-gutentags'
 let g:gutentags_cache_dir="~/.tags"
