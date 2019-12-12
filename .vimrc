@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Wed Dec 11 15:58:23 2019                        by bmbarga      "
+"   Updated: Thu Dec 12 10:48:09 2019                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -291,8 +291,12 @@ let g:ale_fixers['javascript'] = ['prettier', 'eslint']
 let g:ale_linters = {}
 let g:ale_linters['javascript'] = ['eslint']
 let g:ale_linters['c'] = ['gcc']
-let g:ale_linters['c++'] = ['g++']
+let g:ale_linter_aliases = {'h': 'c'}
+let g:ale_linter_aliases['hpp'] = ['cpp']
+let g:ale_linters['c'] = ['gcc']
+let g:ale_linters['cpp'] = ['g++']
 let g:ale_c_gcc_options="-Wall -Werror -Wextra"
+let g:ale_c_parse_makefile=1
 
 " max line length that prettier will wrap on
 " Prettier default: 80
