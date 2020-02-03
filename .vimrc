@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Thu Dec 12 10:48:09 2019                        by bmbarga      "
+"   Updated: Mon Feb 03 18:19:27 2020                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -88,7 +88,7 @@ inoremap {<CR>  {<CR>}<Esc>O
 
 "Statusline
 set laststatus=2
-set statusline=%f\ [FORMAT=%{&ff}]\ [POS=%04l,%04v]\ [LEN=%L]
+set statusline+=%f\ [FORMAT=%{&ff}]\ [POS=%04l,%04v]\ [LEN=%L]
 
 "Abbreviation
 source ~/.vimsrcs/abbreviations.vim
@@ -240,6 +240,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 "vim-go config
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 let g:go_metalinter_autosave = 1
 let g:go_metalinter_command = "golangci-lint"
 let g:go_list_type = 'quickfix'
@@ -293,7 +295,11 @@ let g:ale_linters['javascript'] = ['eslint']
 let g:ale_linters['c'] = ['gcc']
 let g:ale_linter_aliases = {'h': 'c'}
 let g:ale_linter_aliases['hpp'] = ['cpp']
+let g:ale_go_bingo_executable = 'gopls'
 let g:ale_linters['c'] = ['gcc']
+let g:ale_linters = {
+	\ 'go': ['gopls'],
+	\}
 let g:ale_linters['cpp'] = ['g++']
 let g:ale_c_gcc_options="-Wall -Werror -Wextra"
 let g:ale_c_parse_makefile=1
