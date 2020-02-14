@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Mon Feb 03 18:19:27 2020                        by bmbarga      "
+"   Updated: Fri Feb 14 12:23:50 2020                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -206,6 +206,8 @@ Plug 'scrooloose/nerdtree'
 "Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'ctrlpvim/ctrlp.vim'
+
+au! FileType go map <c-x><c-x>d <esc>:GoDeclsDir<cr>
 
 "syntax
 Plug 'pangloss/vim-javascript'
