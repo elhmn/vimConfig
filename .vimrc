@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Fri Mar 20 11:52:41 2020                        by bmbarga      "
+"   Updated: Fri Mar 20 13:25:12 2020                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -101,6 +101,7 @@ autocmd BufNewFile * silent! 0r ~/.vimsrcs/templates/%:e.tpl
 "Session
 autocmd VimEnter * call LoadSession()
 autocmd VimEnter * source  ~/.vimsrcs/custom_colors.vim
+autocmd VimEnter * AirlineTheme orbital
 autocmd VimLeave * call SaveSession()
 autocmd SessionLoadPost * source ~/.vimsrcs/custom_colors.vim
 function! SaveSession()
@@ -508,8 +509,6 @@ let g:NERDTrimTrailingWhitespace = 1
 "airline
 let g:airline#extensions#tabline#enabled = 1
 
-"Style color scheme
-source ~/.vimsrcs/custom_colors.vim
 
 "quickfix search on two level
 command! -nargs=+ Silent
@@ -524,6 +523,9 @@ map ff :Silent execute "FZF" <cr>
 " Default fzf layout
 " - down / up / left / right
 let g:fzf_layout = { 'down': '~20%' }
+
+"Style color scheme
+source ~/.vimsrcs/custom_colors.vim
 
 " This is the default extra key bindings
 let g:fzf_action = {
