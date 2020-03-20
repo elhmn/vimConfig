@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Fri Mar 20 16:28:04 2020                        by bmbarga      "
+"   Updated: Fri Mar 20 17:34:01 2020                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -36,7 +36,7 @@ set tabstop=4
 set autoindent
 set smartindent
 set smarttab
-set listchars=tab:\--
+set listchars=tab:\-->
 
 " set cindent
 autocmd FileType javascript setlocal tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
@@ -45,6 +45,7 @@ autocmd FileType python setlocal softtabstop=4 tabstop=4 noexpandtab shiftwidth=
 " add yaml stuffs
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd BufWritePost *{.yaml,yml} retab!
 
 "Command map
 
