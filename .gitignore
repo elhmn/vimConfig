@@ -1,3 +1,9 @@
 #temp
 .*sw*
 *.orig
+*/ftdetect/*
+*/javascript/*
+*/node_modules/*
+*/package.json
+*/plugged/*
+*/sessions/*
