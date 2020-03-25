@@ -1,4 +1,6 @@
 {
+	"diagnostic.checkCurrentLine": true,
+	"diagnostic.refreshAfterSave": true,
 	"yaml.schemas": {
 		"kubernetes": "/*.yaml"
 	},
