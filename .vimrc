@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Wed Mar 25 07:12:38 2020                        by bmbarga      "
+"   Updated: Tue Apr 07 22:07:27 2020                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -21,7 +21,7 @@ syntax on
 "set mouse=a
 set hls
 set number
-set relativenumber
+" set relativenumber
 set incsearch
 set foldenable
 set foldmethod=syntax
@@ -119,9 +119,9 @@ source ~/.vimsrcs/header.vim
 source ~/.vimsrcs/comments.vim
 
 "Completion plugins
-let g:completor_node_binary = '/usr/local/bin/node'
+" let g:completor_node_binary = '/usr/local/bin/node'
 "If go completion does not work change gocode bin path
-let g:completor_gocode_binary = '~/go/bin/gocode'
+" let g:completor_gocode_binary = '~/go/bin/gocode'
 inoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
@@ -190,6 +190,8 @@ call plug#begin('~/.vim/plugged')
 "   \ 'do': 'yarn install',
 "   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 
+" Plug 'OmniSharp/omnisharp-vim'
+
 "Colorschem
 Plug 'fcpg/vim-orbital'
 Plug 'jacoborus/tender.vim'
@@ -201,7 +203,7 @@ Plug 'jacoborus/tender.vim'
 Plug 'marijnh/tern_for_vim'
 
 "Completion
-Plug 'maralla/completor.vim' , { 'do': 'make js'}
+"Plug 'maralla/completor.vim' , { 'do': 'make js'}
 
 "Tree browser
 Plug 'scrooloose/nerdtree'
@@ -251,10 +253,14 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+Plug 'sheerun/vim-polyglot'
+
+
 " Initialize plugin system
 call plug#end()
 
 "coc======================= START
+let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-yaml']
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -389,7 +395,7 @@ let g:go_info_mode='gopls'
 let g:go_metalinter_command = "golangci-lint"
 let g:go_list_type = 'quickfix'
 let g:go_metalinter_autosave = 0
-let g:go_metalinter_enabled = ["vet","golint","errcheck", "whitespace"]
+let g:go_metalinter_enabled = ["vet","golint","errcheck", "whitespace", "unused"]
 " let g:go_metalinter_enabled = ["vet", "golint", "deadcode", "errcheck", "gosimple", "ineffassign", "staticcheck", "structcheck", "typecheck", "unused", "varcheck"]
 let g:go_fmt_command = "goimports"
 let g:go_highlight_types = 1
@@ -400,6 +406,7 @@ let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_build_constraints = 1
 let g:go_decls_includes = "func,type"
+let g:go = "func,type"
 
 "emmet
 let g:user_emmet_install_global = 0
@@ -423,26 +430,26 @@ let g:user_emmet_leader_key='<C-Y>'
 " let g:html5_aria_attributes_complete = 0
 
 "ale
-let g:ale_completion_enabled = 1
-
-let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['prettier', 'eslint']
-" let g:ale_fix_on_save = 1
-
-let g:ale_linters = {}
-let g:ale_linters['javascript'] = ['eslint']
-let g:ale_linters['c'] = ['gcc']
-let g:ale_linter_aliases = {'h': 'c'}
-let g:ale_linter_aliases['hpp'] = ['cpp']
-let g:ale_go_bingo_executable = 'gopls'
-let g:ale_linters['c'] = ['gcc']
-let g:ale_linters = {
-	\ 'go': ['gopls'],
-	\}
-let g:ale_linters['cpp'] = ['g++']
-let g:ale_c_gcc_options="-Wall -Werror -Wextra"
-let g:ale_c_parse_makefile=1
-
+" let g:ale_completion_enabled = 1
+"
+" let g:ale_fixers = {}
+" let g:ale_fixers['javascript'] = ['prettier', 'eslint']
+" " let g:ale_fix_on_save = 1
+"
+" let g:ale_linters = {}
+" let g:ale_linters['javascript'] = ['eslint']
+" let g:ale_linters['c'] = ['gcc']
+" let g:ale_linter_aliases = {'h': 'c'}
+" let g:ale_linter_aliases['hpp'] = ['cpp']
+" let g:ale_go_bingo_executable = 'gopls'
+" let g:ale_linters['c'] = ['gcc']
+" let g:ale_linters = {
+" 	\ 'go': ['gopls'],
+" 	\}
+" let g:ale_linters['cpp'] = ['g++']
+" let g:ale_c_gcc_options="-Wall -Werror -Wextra"
+" let g:ale_c_parse_makefile=1
+"
 " max line length that prettier will wrap on
 " Prettier default: 80
 "let g:prettier#config#print_width = 80
@@ -521,6 +528,7 @@ let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tabline#close_symbol = '×'
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#branch#displayed_head_limit = 20
 
 "quickfix search on two level
 command! -nargs=+ Silent
