@@ -5,7 +5,7 @@
 		"kubernetes": "/*.yaml"
 	},
 	"yaml.format.enable": true,
-	"suggest.autoTrigger": "none",
+	"suggest.autoTrigger": "always",
 	"languageserver": {
 		"golang": {
 			"command": "gopls",
@@ -36,6 +36,18 @@
 			"args": [
 				"--stdio"
 			]
+		},
+		"cmake": {
+			"command": "cmake-language-server",
+			"filetypes": [
+				"cmake"
+			],
+			"rootPatterns": [
+				"build/"
+			],
+			"initializationOptions": {
+				"buildDirectory": "build"
+			}
 		}
 	}
 }
