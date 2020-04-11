@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Tue Apr 07 22:07:27 2020                        by bmbarga      "
+"   Updated: Sat Apr 11 09:16:55 2020                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -190,14 +190,16 @@ call plug#begin('~/.vim/plugged')
 "   \ 'do': 'yarn install',
 "   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 
-" Plug 'OmniSharp/omnisharp-vim'
+Plug 'OmniSharp/omnisharp-vim'
+"in case unityengine autocompletion fails add  to your shellrc file
+"export FrameworkPathOverride=/lib/mono/4.5
 
 "Colorschem
 Plug 'fcpg/vim-orbital'
 Plug 'jacoborus/tender.vim'
 
 "for lint
-"Plug 'w0rp/ale'
+Plug 'w0rp/ale'
 
 "tern
 Plug 'marijnh/tern_for_vim'
@@ -259,8 +261,14 @@ Plug 'sheerun/vim-polyglot'
 " Initialize plugin system
 call plug#end()
 
+
 "coc======================= START
 let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-yaml']
+
+"disable coc for *.cs
+" autocmd BufNew,BufEnter *.cs execute "silent! CocDisable"
+" autocmd BufLeave *.cs execute "silent! CocEnable"
+
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -389,6 +397,9 @@ let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
 let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
 "coc======================= END
 
+"omnisharp
+"let g:OmniSharp_server_use_mono = 1
+
 "vim-go config
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
@@ -431,24 +442,25 @@ let g:user_emmet_leader_key='<C-Y>'
 
 "ale
 " let g:ale_completion_enabled = 1
-"
-" let g:ale_fixers = {}
-" let g:ale_fixers['javascript'] = ['prettier', 'eslint']
+
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['prettier', 'eslint']
 " " let g:ale_fix_on_save = 1
 "
-" let g:ale_linters = {}
-" let g:ale_linters['javascript'] = ['eslint']
-" let g:ale_linters['c'] = ['gcc']
-" let g:ale_linter_aliases = {'h': 'c'}
-" let g:ale_linter_aliases['hpp'] = ['cpp']
+let g:ale_linters = {}
+let g:ale_linters['javascript'] = ['eslint']
+let g:ale_linters['cs'] = ['OmniSharp']
+let g:ale_linters['c'] = ['gcc']
+let g:ale_linter_aliases = {'h': 'c'}
+let g:ale_linter_aliases['hpp'] = ['cpp']
 " let g:ale_go_bingo_executable = 'gopls'
 " let g:ale_linters['c'] = ['gcc']
 " let g:ale_linters = {
 " 	\ 'go': ['gopls'],
 " 	\}
-" let g:ale_linters['cpp'] = ['g++']
-" let g:ale_c_gcc_options="-Wall -Werror -Wextra"
-" let g:ale_c_parse_makefile=1
+let g:ale_linters['cpp'] = ['g++']
+let g:ale_c_gcc_options="-Wall -Werror -Wextra"
+let g:ale_c_parse_makefile=1
 "
 " max line length that prettier will wrap on
 " Prettier default: 80
