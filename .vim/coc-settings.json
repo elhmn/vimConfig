@@ -48,6 +48,16 @@
 			"initializationOptions": {
 				"buildDirectory": "build"
 			}
+		},
+		"groovy": {
+			"command": "java",
+			"args": [
+				"-jar",
+				"/Users/bmbarga/Work/groovy-language-server/build/libs/groovy-language-server-all.jar"
+			],
+			"filetypes": [
+				"groovy"
+			]
 		}
 	}
 }
