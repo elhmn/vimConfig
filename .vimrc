@@ -7,7 +7,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Thu Apr 16 12:55:09 2020                        by bmbarga      "
+"   Updated: Tue Jun 23 12:23:26 2020                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -264,7 +264,7 @@ call plug#end()
 
 
 "coc======================= START
-let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-yaml']
+let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-yaml', 'coc-json', 'coc-html', 'coc-css', 'coc-emmet', 'coc-tslint', 'coc-prettier']
 
 "disable coc for *.cs
 " autocmd BufNew,BufEnter *.cs execute "silent! CocDisable"
@@ -406,9 +406,8 @@ let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_metalinter_command = "golangci-lint"
 let g:go_list_type = 'quickfix'
-let g:go_metalinter_autosave = 0
-let g:go_metalinter_enabled = ["vet","golint","errcheck", "whitespace", "unused"]
-" let g:go_metalinter_enabled = ["vet", "golint", "deadcode", "errcheck", "gosimple", "ineffassign", "staticcheck", "structcheck", "typecheck", "unused", "varcheck"]
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_enabled = ["govet","errcheck", "unused", "deadcode", "gosimple", "ineffassign", "staticcheck", "structcheck", "typecheck", "varcheck"]
 let g:go_fmt_command = "goimports"
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
@@ -425,7 +424,7 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css,javascript,php EmmetInstall
 
 "redefine triggerkey
-let g:user_emmet_leader_key='<C-Y>'
+let g:user_emmet_leader_key=','
 
 "html5
 
