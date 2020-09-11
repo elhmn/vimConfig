@@ -5,6 +5,7 @@
 		"kubernetes": "/*.yaml"
 	},
 	"yaml.format.enable": true,
+	"python.linting.flake8Enabled": true,
 	"suggest.autoTrigger": "always",
 	"languageserver": {
 		"golang": {
