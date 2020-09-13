@@ -1,64 +1,45 @@
 {
-	"diagnostic.checkCurrentLine": true,
-	"diagnostic.refreshAfterSave": true,
-	"yaml.schemas": {
-		"kubernetes": "/*.yaml"
-	},
-	"yaml.format.enable": true,
-	"python.linting.flake8Enabled": true,
-	"suggest.autoTrigger": "always",
-	"languageserver": {
-		"golang": {
-			"command": "gopls",
-			"rootPatterns": [
-				"go.mod"
-			],
-			"filetypes": [
-				"go"
-			]
-		},
-		"bash": {
-			"command": "bash-language-server",
-			"args": [
-				"start"
-			],
-			"filetypes": [
-				"sh"
-			],
-			"ignoredRootPaths": [
-				"~"
-			]
-		},
-		"dockerfile": {
-			"command": "docker-langserver",
-			"filetypes": [
-				"dockerfile"
-			],
-			"args": [
-				"--stdio"
-			]
-		},
-		"cmake": {
-			"command": "cmake-language-server",
-			"filetypes": [
-				"cmake"
-			],
-			"rootPatterns": [
-				"build/"
-			],
-			"initializationOptions": {
-				"buildDirectory": "build"
-			}
-		},
-		"groovy": {
-			"command": "java",
-			"args": [
-				"-jar",
-				"/Users/bmbarga/Work/groovy-language-server/build/libs/groovy-language-server-all.jar"
-			],
-			"filetypes": [
-				"groovy"
-			]
-		}
-	}
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.refreshAfterSave": true,
+  "yaml.schemas": {
+    "kubernetes": "/*.yaml"
+  },
+  "yaml.format.enable": true,
+  "python.linting.flake8Enabled": true,
+  "python.jediEnabled": true,
+  "suggest.autoTrigger": "always",
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"]
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    },
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
+    },
+    "cmake": {
+      "command": "cmake-language-server",
+      "filetypes": ["cmake"],
+      "rootPatterns": ["build/"],
+      "initializationOptions": {
+        "buildDirectory": "build"
+      }
+    },
+    "groovy": {
+      "command": "java",
+      "args": [
+        "-jar",
+        "/Users/bmbarga/Work/groovy-language-server/build/libs/groovy-language-server-all.jar"
+      ],
+      "filetypes": ["groovy"]
+    }
+  }
 }

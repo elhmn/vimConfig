@@ -264,7 +264,7 @@ call plug#end()
 
 
 "coc======================= START
-let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-yaml', 'coc-json', 'coc-html', 'coc-css', 'coc-emmet', 'coc-tslint', 'coc-prettier', 'coc-tsserver', 'coc-css', 'coc-python']
+let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-yaml', 'coc-json', 'coc-html', 'coc-css', 'coc-emmet', 'coc-tslint', 'coc-prettier', 'coc-tsserver', 'coc-css', 'coc-python', 'coc-jedi']
 
 "disable coc for *.cs
 " autocmd BufNew,BufEnter *.cs execute "silent! CocDisable"
