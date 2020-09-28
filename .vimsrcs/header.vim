@@ -6,7 +6,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 19:09:23 2018                        by elhmn        "
-"   Updated: Sat Mar 02 07:45:37 2019                        by bmbarga      "
+"   Updated: Mon Sep 28 11:05:53 2020                        by elhmn        "
 "                                                                            "
 " ************************************************************************** "
 
@@ -66,6 +66,13 @@ endfunction
 function!		DoesHeaderExist()
 	execute "normal! gg"
 
+	"exclude 42 file header
+ 	if search('tle-mign', 'cn', s:templateMaxSize) != 0
+		execute "normal! \<c-o>"
+		return 1
+	endif
+
+	execute "normal! gg"
 	if search('By:.*<.*>', 'cn', s:templateMaxSize) == 0
 		execute "normal! \<c-o>"
 		return 1
@@ -86,8 +93,8 @@ function		SaveUpdateData()
 	if DoesHeaderExist() != 0
 		return 0
 	endif
-		execute ':1,'.s:templateMaxSize.'s/\(Updated: \)\(.*[0-9]\{2}:[0-9]\{2}:[0-9]\{2} [0-9]\{4}\)\(.*by.*\)/\1'.strftime("%a %b %d %H:%M:%S %Y").'\3/gi'
-		execute ':1,'.s:templateMaxSize.'s/\(Updated: \)\(.*[0-9]\{2}:[0-9]\{2}:[0-9]\{2} [0-9]\{4}\)\(.*by \)\zs\(.\{'.len(s:placeholders["editor"]).'}\)\ze\(.*\)/'.s:placeholders["editor"].'/gi'
+	execute ':1,'.s:templateMaxSize.'s/\(Updated: \)\(.*[0-9]\{2}:[0-9]\{2}:[0-9]\{2} [0-9]\{4}\)\(.*by.*\)/\1'.strftime("%a %b %d %H:%M:%S %Y").'\3/gi'
+	execute ':1,'.s:templateMaxSize.'s/\(Updated: \)\(.*[0-9]\{2}:[0-9]\{2}:[0-9]\{2} [0-9]\{4}\)\(.*by \)\zs\(.\{'.len(s:placeholders["editor"]).'}\)\ze\(.*\)/'.s:placeholders["editor"].'/gi'
 	call s:ReplacePlaceholderString(s:placeholders["editor"], l:editor)
 	execute "normal! \<c-o>\<c-o>"
 	return 1
