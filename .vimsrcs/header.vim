@@ -67,7 +67,7 @@ function!		DoesHeaderExist()
 	execute "normal! gg"
 
 	"exclude 42 file header
- 	if search('tle-mign', 'cn', s:templateMaxSize) != 0
+ 	if search('+#+#+#+#+#+', 'cn', s:templateMaxSize) != 0
 		execute "normal! \<c-o>"
 		return 1
 	endif
