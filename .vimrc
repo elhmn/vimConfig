@@ -7,7 +7,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Sat Jul 04 15:40:28 2020                        by elhmn        "
+"   Updated: Sat Jan 16 09:53:00 2021                        by elhmn        "
 "                                                                            "
 " ************************************************************************** "
 
@@ -240,7 +240,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'othree/html5.vim'
 
 "Vim markdown
-Plug 'plasticboy/vim-markdown'
+"Plug 'plasticboy/vim-markdown'
 
 "html emmet
 Plug 'mattn/emmet-vim'
@@ -258,13 +258,16 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'sheerun/vim-polyglot'
 
+"markdown fold
+Plug 'masukomi/vim-markdown-folding', { 'for': 'markdown' }
+
 
 " Initialize plugin system
 call plug#end()
 
 
 "coc======================= START
-let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-yaml', 'coc-json', 'coc-html', 'coc-css', 'coc-emmet', 'coc-tslint', 'coc-prettier', 'coc-tsserver', 'coc-css', 'coc-python', 'coc-jedi', 'coc-solargraph']
+let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-yaml', 'coc-json', 'coc-html', 'coc-css', 'coc-emmet', 'coc-tslint', 'coc-prettier', 'coc-tsserver', 'coc-css', 'coc-python', 'coc-jedi', 'coc-solargraph', 'coc-markdownlint']
 
 "disable coc for *.cs
 " autocmd BufNew,BufEnter *.cs execute "silent! CocDisable"
