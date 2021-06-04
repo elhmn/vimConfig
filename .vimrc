@@ -267,7 +267,7 @@ call plug#end()
 
 
 "coc======================= START
-let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-yaml', 'coc-json', 'coc-html', 'coc-css', 'coc-emmet', 'coc-tslint', 'coc-prettier', 'coc-tsserver', 'coc-css', 'coc-python', 'coc-jedi', 'coc-solargraph', 'coc-markdownlint']
+let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-yaml', 'coc-json', 'coc-html', 'coc-css', 'coc-emmet', 'coc-tslint', 'coc-prettier', 'coc-tsserver', 'coc-css', 'coc-python', 'coc-jedi', 'coc-solargraph', 'coc-markdownlint', 'coc-pairs']
 
 "disable coc for *.cs
 " autocmd BufNew,BufEnter *.cs execute "silent! CocDisable"
@@ -410,9 +410,9 @@ let g:go_info_mode='gopls'
 let g:go_metalinter_command = "golangci-lint"
 let g:go_list_type = 'quickfix'
 let g:go_decls_mode="fzf"
-" let g:go_metalinter_autosave = 1
-let g:go_metalinter_enabled = ["govet","whitespace", "errcheck"]
-" let g:go_metalinter_enabled = ["govet", "whitespace", "errcheck", "unused", "deadcode", "gosimple", "ineffassign", "staticcheck", "structcheck", "typecheck", "varcheck"]
+let g:go_metalinter_autosave = 1
+" let g:go_metalinter_enabled = ["govet","whitespace", "errcheck"]
+let g:go_metalinter_enabled = ["govet","whitespace", "errcheck", "unused", "deadcode", "gosimple", "staticcheck", "structcheck", "typecheck", "varcheck"]
 let g:go_fmt_command = "goimports"
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
