@@ -84,7 +84,7 @@ function!		DebugComments(sandwich)
 "	type[0] -> start character, type[1] -> end character
 	let		l:type = [s:typeStart[1], '']
 
-	if l:fileType =~# '^\(c\|cs\|cpp\|java\|php\|js\|h\|hpp\|cc\|css\|go\)$'
+	if l:fileType =~# '^\(c\|cs\|cpp\|java\|php\|js\|ts\|h\|hpp\|cc\|css\|go\)$'
 		if a:sandwich == 1
 			let	l:type[0] = s:typeStart[2]
 			let	l:type[1] = s:typeEnd[0]
@@ -108,7 +108,7 @@ function!		RemoveDebugComments(sandwich)
 "	type[0] -> start character, type[1] -> end character
 	let		l:type = [s:typeStart[1], '']
 
-	if l:fileType =~# '^\(c\|cs\|cpp\|java\|php\|js\|h\|hpp\|cc\|css\|go\)$'
+	if l:fileType =~# '^\(c\|cs\|cpp\|java\|php\|js\|ts\|h\|hpp\|cc\|css\|go\)$'
 		if a:sandwich == 1
 			let	l:type[0] = s:typeStart[2]
 			let	l:type[1] = s:typeEnd[0]
