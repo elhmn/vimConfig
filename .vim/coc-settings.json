@@ -4,6 +4,8 @@
   "yaml.schemas": {
     "kubernetes": "/*.yaml"
   },
+  "groovy.java.home": "/Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home",
+  "diagnostic.messageTarget": "echo",
   "yaml.format.enable": true,
   "python.linting.flake8Enabled": true,
   "python.jediEnabled": true,
@@ -32,14 +34,6 @@
       "initializationOptions": {
         "buildDirectory": "build"
       }
-    },
-    "groovy": {
-      "command": "java",
-      "args": [
-        "-jar",
-        "/Users/bmbarga/Work/groovy-language-server/build/libs/groovy-language-server-all.jar"
-      ],
-      "filetypes": ["groovy"]
     }
   }
 }
