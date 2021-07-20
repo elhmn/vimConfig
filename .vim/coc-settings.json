@@ -10,6 +10,10 @@
   "python.linting.flake8Enabled": true,
   "python.jediEnabled": true,
   "suggest.autoTrigger": "always",
+  "html.filetypes": ["html", "handlebars", "htmldjango", "blade", "hbs"],
+  "html.format.indentInnerHtml": true,
+  "html.format.indentHandlebars": true,
+  "html.format.enable": true,
   "languageserver": {
     "golang": {
       "command": "gopls",
