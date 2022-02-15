@@ -7,7 +7,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Tue Jul 20 10:14:49 2021                        by elhmn        "
+"   Updated: Tue Feb 15 05:41:34 2022                        by bmbarga      "
 "                                                                            "
 " ************************************************************************** "
 
@@ -214,6 +214,9 @@ Plug 'scrooloose/nerdtree'
 "Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'ctrlpvim/ctrlp.vim'
+
+"Markdown-preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 au! FileType go map <c-x><c-x>d <esc>:GoDeclsDir<cr>
 
