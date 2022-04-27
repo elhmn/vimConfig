@@ -1,12 +1,7 @@
 {
   "diagnostic.checkCurrentLine": true,
-  "diagnostic.refreshAfterSave": true,
-  "yaml.schemas": {
-    "kubernetes": "/*.yaml"
-  },
   "rust-analyzer.completion.autoself.enable": true,
   "rust-analyzer.completion.autoimport.enable": true,
-  "groovy.java.home": "/Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home",
   "diagnostic.messageTarget": "echo",
   "yaml.format.enable": true,
   "python.linting.flake8Enabled": true,
