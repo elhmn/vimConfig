@@ -7,7 +7,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Wed Apr 27 18:43:50 2022                        by elhmn        "
+"   Updated: Wed Apr 27 19:48:13 2022                        by elhmn        "
 "                                                                            "
 " ************************************************************************** "
 
@@ -559,9 +559,10 @@ command! -nargs=+ Silent
 \   execute 'silent <args>'
 \ | redraw!
 
-map fw :Silent execute "grep -RE ".expand("<cword>")." . --exclude-dir=node_modules --exclude=*.orig --exclude=*.sw*" <Bar> cw<CR>
+"find word
+map fw :Ack<cr>
 
-"FZF
+"find file -- FZF
 map ff :Silent execute "FZF" <cr>
 
 " Default fzf layout
@@ -583,6 +584,10 @@ let g:fzf_action = {
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+let g:ack_mappings = {
+      \  'v':  '<C-W><CR><C-W>L<C-W>p<C-W>J<C-W>p',
+      \ 'gv': '<C-W><CR><C-W>L<C-W>p<C-W>J' }
 
 "must be uncommented only for editing bw-frontend projects
 "set suffixesadd+=.js
