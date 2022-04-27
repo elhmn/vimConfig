@@ -7,7 +7,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Tue Feb 15 05:41:34 2022                        by bmbarga      "
+"   Updated: Wed Apr 27 18:34:53 2022                        by elhmn        "
 "                                                                            "
 " ************************************************************************** "
 
@@ -263,6 +263,10 @@ Plug 'sheerun/vim-polyglot'
 
 "markdown fold
 Plug 'masukomi/vim-markdown-folding', { 'for': 'markdown' }
+
+"ack.vim
+" on mac install ack with `brew install ack`
+Plug 'mileszs/ack.vim'
 
 
 " Initialize plugin system
