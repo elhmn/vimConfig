@@ -7,7 +7,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Wed Apr 27 18:34:53 2022                        by elhmn        "
+"   Updated: Wed Apr 27 18:43:50 2022                        by elhmn        "
 "                                                                            "
 " ************************************************************************** "
 
@@ -576,6 +576,13 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
+
+"ack
+"use ack with ag
+"install ag using `brew install the_silver_searcher`
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 "must be uncommented only for editing bw-frontend projects
 "set suffixesadd+=.js
