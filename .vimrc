@@ -72,15 +72,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'zivyangll/git-blame.vim'
 Plug 'tpope/vim-fugitive'
 
-"tags
-Plug 'ludovicchabant/vim-gutentags'
-let g:gutentags_cache_dir="~/.tags"
-let g:gutentags_file_list_command = {
-    \ 'markers': {
-        \ '.git': 'git ls-files',
-    \ },
-\ }
-
 "Comments
 Plug 'scrooloose/nerdcommenter'
 
