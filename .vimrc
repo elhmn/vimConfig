@@ -7,7 +7,7 @@
 "             <nleme@live.fr>                                                "
 "                                                                            "
 "   Created: Sun Jun 17 17:02:37 2018                        by elhmn        "
-"   Updated: Wed Apr 27 19:48:13 2022                        by elhmn        "
+"   Updated: Sun May 22 14:01:42 2022                        by codespace    "
 "                                                                            "
 " ************************************************************************** "
 
@@ -204,14 +204,14 @@ source ~/.vimsrcs/abbreviations.vim
 "Load template
 autocmd BufNewFile * silent! 0r ~/.vimsrcs/templates/%:e.tpl
 
-"Comment vim file
+colorscheme orbital
 
+" autocmd VimEnter * source  ~/.vimsrcs/custom_colors.vim
+" autocmd VimEnter * AirlineTheme orbital
+" autocmd SessionLoadPost * source ~/.vimsrcs/custom_colors.vim
 "Session
 autocmd VimEnter * call LoadSession()
-autocmd VimEnter * source  ~/.vimsrcs/custom_colors.vim
-autocmd VimEnter * AirlineTheme orbital
 autocmd VimLeave * call SaveSession()
-autocmd SessionLoadPost * source ~/.vimsrcs/custom_colors.vim
 function! SaveSession()
 	execute 'mksession! $HOME/.vim/sessions/session.vim'
 endfunction
@@ -223,6 +223,7 @@ endfunction
 
 "vim scripts header
 source ~/.vimsrcs/header.vim
+"Comment vim file
 source ~/.vimsrcs/comments.vim
 
 "Completion plugins
@@ -572,7 +573,7 @@ map ff :Silent execute "FZF" <cr>
 let g:fzf_layout = { 'down': '~20%' }
 
 "Style color scheme
-source ~/.vimsrcs/custom_colors.vim
+"source ~/.vimsrcs/custom_colors.vim
 
 " This is the default extra key bindings
 let g:fzf_action = {
@@ -601,6 +602,9 @@ let g:ack_mappings = {
 set backspace=2 " make backspace work like most other programs
 "set backspace=indent,eol,start
 
+set cursorline
+
+"highlight CursorLine ctermbg=NONE cterm=NONE
 filetype indent off
 filetype plugin indent off
 " Enable filetype plugins
