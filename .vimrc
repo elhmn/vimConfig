@@ -11,6 +11,112 @@
 "                                                                            "
 " ************************************************************************** "
 
+"vim plug : plugin manager
+
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+"php completion
+""Plug 'shawncplus/phpcomplete.vim'
+
+" post install (yarn install | npm install) then load plugin only for editing supported files
+" Don't forget to change add --no--editorconfig for single_quote
+"
+"            \ get(a:config, 'configPrecedence', g:prettier#config#config_precedence) .
+"            \ ' --stdin-filepath ' .
+"            \ simplify(expand("%:p")) .
+" +          \ ' --no-editorconfig '.
+" +          \ ' --loglevel "error" '.
+"            \ ' --stdin '
+"    return l:cmd
+"
+" Plug 'prettier/vim-prettier', {
+"   \ 'do': 'yarn install',
+"   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+
+Plug 'OmniSharp/omnisharp-vim'
+"in case unityengine autocompletion fails add  to your shellrc file
+"export FrameworkPathOverride=/lib/mono/4.5
+
+"Colorschem
+Plug 'fcpg/vim-orbital'
+Plug 'jacoborus/tender.vim'
+
+"for lint
+Plug 'w0rp/ale'
+
+"tern
+Plug 'marijnh/tern_for_vim'
+
+"Completion
+"Plug 'maralla/completor.vim' , { 'do': 'make js'}
+
+"Tree browser
+Plug 'scrooloose/nerdtree'
+
+"Go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'ctrlpvim/ctrlp.vim'
+
+"Markdown-preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+au! FileType go map <c-x><c-x>d <esc>:GoDeclsDir<cr>
+
+"syntax
+Plug 'pangloss/vim-javascript'
+
+"git
+Plug 'zivyangll/git-blame.vim'
+Plug 'tpope/vim-fugitive'
+
+"tags
+Plug 'ludovicchabant/vim-gutentags'
+let g:gutentags_cache_dir="~/.tags"
+let g:gutentags_file_list_command = {
+    \ 'markers': {
+        \ '.git': 'git ls-files',
+    \ },
+\ }
+
+"Comments
+Plug 'scrooloose/nerdcommenter'
+
+"Html5
+Plug 'othree/html5.vim'
+
+"Vim markdown
+"Plug 'plasticboy/vim-markdown'
+
+"html emmet
+Plug 'mattn/emmet-vim'
+
+"Find files
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+"LSP Language server protocol support
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+
+"statusline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'sheerun/vim-polyglot'
+
+"markdown fold
+Plug 'masukomi/vim-markdown-folding', { 'for': 'markdown' }
+
+"ack.vim
+" on mac install ack with `brew install ack`
+Plug 'mileszs/ack.vim'
+
+
+" Initialize plugin system
+call plug#end()
+
 "My vim config
 
 "disable beep
@@ -166,111 +272,7 @@ let g:javascript_plugin_jsdoc = 1
 " let g:syntastic_javascript_checkers = ['eslint']
 " let g:syntastic_javascript_eslint_exec = 'eslint_d'
 
-"vim plug : plugin manager
 
-" Specify a directory for plugins
-" - For Neovim: ~/.local/share/nvim/plugged
-" - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
-
-"php completion
-""Plug 'shawncplus/phpcomplete.vim'
-
-" post install (yarn install | npm install) then load plugin only for editing supported files
-" Don't forget to change add --no--editorconfig for single_quote
-"
-"            \ get(a:config, 'configPrecedence', g:prettier#config#config_precedence) .
-"            \ ' --stdin-filepath ' .
-"            \ simplify(expand("%:p")) .
-" +          \ ' --no-editorconfig '.
-" +          \ ' --loglevel "error" '.
-"            \ ' --stdin '
-"    return l:cmd
-"
-" Plug 'prettier/vim-prettier', {
-"   \ 'do': 'yarn install',
-"   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
-
-Plug 'OmniSharp/omnisharp-vim'
-"in case unityengine autocompletion fails add  to your shellrc file
-"export FrameworkPathOverride=/lib/mono/4.5
-
-"Colorschem
-Plug 'fcpg/vim-orbital'
-Plug 'jacoborus/tender.vim'
-
-"for lint
-Plug 'w0rp/ale'
-
-"tern
-Plug 'marijnh/tern_for_vim'
-
-"Completion
-"Plug 'maralla/completor.vim' , { 'do': 'make js'}
-
-"Tree browser
-Plug 'scrooloose/nerdtree'
-
-"Go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'ctrlpvim/ctrlp.vim'
-
-"Markdown-preview
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-
-au! FileType go map <c-x><c-x>d <esc>:GoDeclsDir<cr>
-
-"syntax
-Plug 'pangloss/vim-javascript'
-
-"git
-Plug 'zivyangll/git-blame.vim'
-Plug 'tpope/vim-fugitive'
-
-"tags
-Plug 'ludovicchabant/vim-gutentags'
-let g:gutentags_cache_dir="~/.tags"
-let g:gutentags_file_list_command = {
-    \ 'markers': {
-        \ '.git': 'git ls-files',
-    \ },
-\ }
-
-"Comments
-Plug 'scrooloose/nerdcommenter'
-
-"Html5
-Plug 'othree/html5.vim'
-
-"Vim markdown
-"Plug 'plasticboy/vim-markdown'
-
-"html emmet
-Plug 'mattn/emmet-vim'
-
-"Find files
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
-"LSP Language server protocol support
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-
-"statusline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-Plug 'sheerun/vim-polyglot'
-
-"markdown fold
-Plug 'masukomi/vim-markdown-folding', { 'for': 'markdown' }
-
-"ack.vim
-" on mac install ack with `brew install ack`
-Plug 'mileszs/ack.vim'
-
-
-" Initialize plugin system
-call plug#end()
 
 
 "coc======================= START
@@ -598,7 +600,6 @@ let g:ack_mappings = {
 
 set backspace=2 " make backspace work like most other programs
 "set backspace=indent,eol,start
-
 
 filetype indent off
 filetype plugin indent off
