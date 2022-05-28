@@ -45,7 +45,7 @@ Plug 'fcpg/vim-orbital'
 Plug 'jacoborus/tender.vim'
 
 "for lint
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 
 "tern
 Plug 'marijnh/tern_for_vim'
@@ -263,7 +263,6 @@ let g:javascript_plugin_jsdoc = 1
 "eslint_d
 " let g:syntastic_javascript_checkers = ['eslint']
 " let g:syntastic_javascript_eslint_exec = 'eslint_d'
-
 
 
 
