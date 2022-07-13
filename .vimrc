@@ -50,6 +50,9 @@ Plug 'jacoborus/tender.vim'
 "tern
 Plug 'marijnh/tern_for_vim'
 
+"vim-snippets
+Plug 'honza/vim-snippets'
+
 "Completion
 "Plug 'maralla/completor.vim' , { 'do': 'make js'}
 
@@ -265,9 +268,8 @@ let g:javascript_plugin_jsdoc = 1
 " let g:syntastic_javascript_eslint_exec = 'eslint_d'
 
 
-
 "coc======================= START
-let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-yaml', 'coc-json', 'coc-html', 'coc-css', 'coc-emmet', 'coc-tslint', 'coc-prettier', 'coc-tsserver', 'coc-css', 'coc-python', 'coc-jedi', 'coc-diagnostic', 'coc-markdownlint', 'coc-rust-analyzer', 'coc-sh']
+let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-yaml', 'coc-json', 'coc-html', 'coc-css', 'coc-emmet', 'coc-tslint', 'coc-prettier', 'coc-tsserver', 'coc-css', 'coc-python', 'coc-jedi', 'coc-diagnostic', 'coc-markdownlint', 'coc-rust-analyzer', 'coc-sh', 'coc-snippets']
 
 "disable coc for *.cs
 " autocmd BufNew,BufEnter *.cs execute "silent! CocDisable"
@@ -296,11 +298,25 @@ set signcolumn=yes
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"
+" map with snippets
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -399,6 +415,9 @@ let airline#extensions#coc#error_symbol = 'E:'
 let airline#extensions#coc#warning_symbol = 'W:'
 let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
 let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
+
+"
+"
 "coc======================= END
 
 "omnisharp
