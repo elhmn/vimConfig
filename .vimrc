@@ -221,7 +221,7 @@ function! LoadSession()
 endfunction
 
 "vim scripts header
-source ~/.vimsrcs/header.vim
+"source ~/.vimsrcs/header.vim
 "Comment vim file
 source ~/.vimsrcs/comments.vim
 
