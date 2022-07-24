@@ -53,6 +53,11 @@ Plug 'marijnh/tern_for_vim'
 "vim-snippets
 Plug 'honza/vim-snippets'
 
+
+"vista
+Plug 'liuchengxu/vista.vim'
+
+
 "Completion
 "Plug 'maralla/completor.vim' , { 'do': 'make js'}
 
@@ -600,6 +605,15 @@ endif
 let g:ack_mappings = {
       \  'v':  '<C-W><CR><C-W>L<C-W>p<C-W>J<C-W>p',
       \ 'gv': '<C-W><CR><C-W>L<C-W>p<C-W>J' }
+
+"vista
+let g:vista_default_executive = 'coc'
+"show vista
+map fv :Vista<cr>
+"hide vista
+map vf :Vista!<cr>
+"vista finder
+map fd :Vista finder<cr>
 
 "must be uncommented only for editing bw-frontend projects
 "set suffixesadd+=.js
