@@ -53,6 +53,11 @@ Plug 'marijnh/tern_for_vim'
 "vim-snippets
 Plug 'honza/vim-snippets'
 
+"diffview.nvim
+Plug 'sindrets/diffview.nvim'
+
+"History vim-mundo
+Plug 'simnalamburt/vim-mundo'
 
 "vista
 Plug 'liuchengxu/vista.vim'
