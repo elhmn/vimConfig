@@ -54,6 +54,8 @@ Plug 'marijnh/tern_for_vim'
 Plug 'honza/vim-snippets'
 
 "diffview.nvim
+"diffview depends on plenary
+Plug 'nvim-lua/plenary.nvim'
 Plug 'sindrets/diffview.nvim'
 
 "History vim-mundo
@@ -618,6 +620,9 @@ map fv :Vista<cr>
 map vf :Vista!<cr>
 "vista finder
 map fd :Vista finder<cr>
+
+"mundo
+nnoremap mu :MundoToggle<CR>
 
 "must be uncommented only for editing bw-frontend projects
 "set suffixesadd+=.js
