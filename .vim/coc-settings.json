@@ -4,8 +4,6 @@
   "rust-analyzer.completion.autoimport.enable": true,
   "diagnostic.messageTarget": "echo",
   "yaml.format.enable": true,
-  "python.linting.flake8Enabled": true,
-  "python.jediEnabled": true,
   "suggest.autoTrigger": "always",
   "html.filetypes": ["html", "handlebars", "htmldjango", "blade", "hbs"],
   "html.format.indentInnerHtml": true,

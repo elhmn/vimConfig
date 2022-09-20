@@ -119,7 +119,6 @@ Plug 'masukomi/vim-markdown-folding', { 'for': 'markdown' }
 " on mac install ack with `brew install ack`
 Plug 'mileszs/ack.vim'
 
-
 " Initialize plugin system
 call plug#end()
 
@@ -282,7 +281,7 @@ let g:javascript_plugin_jsdoc = 1
 
 "coc======================= START
 let g:coc_disable_startup_warning = 1
-let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-yaml', 'coc-json', 'coc-html', 'coc-css', 'coc-emmet', 'coc-prettier', 'coc-tsserver', 'coc-css', 'coc-jedi', 'coc-diagnostic', 'coc-markdownlint', 'coc-rust-analyzer', 'coc-sh', 'coc-snippets']
+let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-yaml', 'coc-json', 'coc-html', 'coc-css', 'coc-emmet', 'coc-prettier', 'coc-tsserver', 'coc-css', 'coc-pyright', 'coc-diagnostic', 'coc-markdownlint', 'coc-rust-analyzer', 'coc-sh', 'coc-snippets']
 
 "disable coc for *.cs
 " autocmd BufNew,BufEnter *.cs execute "silent! CocDisable"
