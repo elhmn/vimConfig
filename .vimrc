@@ -76,6 +76,8 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'ctrlpvim/ctrlp.vim'
 
 "Markdown-preview
+" if your markdown preview is not working run `:call mkdp#util#install()`
+" as mentioned in this comment -> https://github.com/iamcco/markdown-preview.nvim/issues/188#issuecomment-1161115873
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 au! FileType go map <c-x><c-x>d <esc>:GoDeclsDir<cr>
