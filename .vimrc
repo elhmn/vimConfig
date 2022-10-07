@@ -121,6 +121,9 @@ Plug 'masukomi/vim-markdown-folding', { 'for': 'markdown' }
 " on mac install ack with `brew install ack`
 Plug 'mileszs/ack.vim'
 
+"context.vim
+Plug 'wellle/context.vim'
+
 " Initialize plugin system
 call plug#end()
 
@@ -624,6 +627,12 @@ map fd :Vista finder<cr>
 
 "mundo
 nnoremap mu :MundoToggle<CR>
+
+"context.vim
+let g:context_enabled = 1
+let g:context_filetype_blacklist = []
+let g:context_max_height = 10
+let g:context_max_per_indent = 5
 
 "must be uncommented only for editing bw-frontend projects
 "set suffixesadd+=.js
