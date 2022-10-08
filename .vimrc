@@ -629,7 +629,7 @@ map fd :Vista finder<cr>
 nnoremap mu :MundoToggle<CR>
 
 "context.vim
-let g:context_enabled = 1
+let g:context_enabled = 0
 let g:context_filetype_blacklist = []
 let g:context_max_height = 10
 let g:context_max_per_indent = 5
