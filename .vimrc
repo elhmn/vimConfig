@@ -124,6 +124,10 @@ Plug 'mileszs/ack.vim'
 "context.vim
 Plug 'wellle/context.vim'
 
+"vim-visual-multi
+"Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
+
 " Initialize plugin system
 call plug#end()
 
