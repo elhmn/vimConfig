@@ -40,6 +40,14 @@ Plug 'OmniSharp/omnisharp-vim'
 "in case unityengine autocompletion fails add  to your shellrc file
 "export FrameworkPathOverride=/lib/mono/4.5
 
+" Octo nvim / octo.nvim
+if has('nvim')
+	Plug 'pwntester/octo.nvim'
+	Plug 'nvim-lua/plenary.nvim'
+	Plug 'nvim-telescope/telescope.nvim'
+	Plug 'kyazdani42/nvim-web-devicons'
+endif
+
 "Colorschem
 Plug 'fcpg/vim-orbital'
 Plug 'jacoborus/tender.vim'
@@ -104,6 +112,8 @@ Plug 'mattn/emmet-vim'
 "Find files
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+" Plug 'yuki-yano/fzf-preview.vim'
+" Plug 'voldikss/vim-floaterm'
 
 "LSP Language server protocol support
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -637,6 +647,11 @@ let g:context_enabled = 0
 let g:context_filetype_blacklist = []
 let g:context_max_height = 10
 let g:context_max_per_indent = 5
+
+"Octo nvim / octo.nvim
+if has('nvim')
+	lua require('octo').setup()
+endif
 
 "must be uncommented only for editing bw-frontend projects
 "set suffixesadd+=.js
