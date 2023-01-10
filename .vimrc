@@ -41,11 +41,16 @@ Plug 'OmniSharp/omnisharp-vim'
 "export FrameworkPathOverride=/lib/mono/4.5
 
 " Octo nvim / octo.nvim
-if has('nvim')
-	Plug 'pwntester/octo.nvim'
-	Plug 'nvim-lua/plenary.nvim'
-	Plug 'nvim-telescope/telescope.nvim'
-	Plug 'kyazdani42/nvim-web-devicons'
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "darwin\n"
+	if has('nvim')
+		plug 'pwntester/octo.nvim'
+		plug 'nvim-lua/plenary.nvim'
+		plug 'nvim-telescope/telescope.nvim'
+		plug 'kyazdani42/nvim-web-devicons'
+	endif
+  endif
 endif
 
 "Colorschem
@@ -649,8 +654,13 @@ let g:context_max_height = 10
 let g:context_max_per_indent = 5
 
 "Octo nvim / octo.nvim
-if has('nvim')
-	lua require('octo').setup()
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "darwin\n"
+	if has('nvim')
+		lua require('octo').setup()
+	endif
+  endif
 endif
 
 "must be uncommented only for editing bw-frontend projects
