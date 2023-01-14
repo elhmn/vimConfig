@@ -43,12 +43,12 @@ Plug 'OmniSharp/omnisharp-vim'
 " Octo nvim / octo.nvim
 if has("unix")
   let s:uname = system("uname")
-  if s:uname == "darwin\n"
+  if s:uname == "Darwin\n"
 	if has('nvim')
-		plug 'pwntester/octo.nvim'
-		plug 'nvim-lua/plenary.nvim'
-		plug 'nvim-telescope/telescope.nvim'
-		plug 'kyazdani42/nvim-web-devicons'
+		Plug 'pwntester/octo.nvim'
+		Plug 'nvim-lua/plenary.nvim'
+		Plug 'nvim-telescope/telescope.nvim'
+		Plug 'kyazdani42/nvim-web-devicons'
 	endif
   endif
 endif
@@ -184,6 +184,12 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd BufWritePost *{.yaml,yml} retab!
 
 "Command map
+
+"copilot map to another key
+" i am currently  not using it as it is not working well
+" imap <silent><script><expr> <C-J> copilot#Accept("<CR>")
+" let g:copilot_no_tab_map = v:true
+" let g:copilot_assume_mapped = v:true
 
 "go to previous tab
 map <c-left>	gT
@@ -656,7 +662,7 @@ let g:context_max_per_indent = 5
 "Octo nvim / octo.nvim
 if has("unix")
   let s:uname = system("uname")
-  if s:uname == "darwin\n"
+  if s:uname == "Darwin\n"
 	if has('nvim')
 		lua require('octo').setup()
 	endif
