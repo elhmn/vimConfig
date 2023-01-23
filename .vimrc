@@ -58,6 +58,9 @@ Plug 'fcpg/vim-orbital'
 Plug 'jacoborus/tender.vim'
 
 "vimspector nice for debugging
+" it may crach with
+" NeoVim: vimspector unavailable: Requires Vim compiled with +python3
+" To fix it run:  pip3 install neovim
 Plug 'puremourning/vimspector'
 
 "for lint
