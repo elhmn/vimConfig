@@ -57,6 +57,9 @@ endif
 Plug 'fcpg/vim-orbital'
 Plug 'jacoborus/tender.vim'
 
+"vimspector nice for debugging
+Plug 'puremourning/vimspector'
+
 "for lint
 " Plug 'w0rp/ale'
 
@@ -668,6 +671,31 @@ if has("unix")
 	endif
   endif
 endif
+
+
+"vimspector nice for debugging
+func! AddToWatch()
+	let word = expand("<cexpr>")
+	call vimspector#AddWatch(word)
+endfunction
+
+noremap dl :call vimspector#Launch()<cr>
+noremap dR :call vimspector#Reset()<cr>
+noremap dr :call vimspector#Restart()<cr>
+noremap dn :call vimspector#Continue()<cr>
+noremap dnc :call vimspector#RunToCursor()<cr>
+noremap db :call vimspector#ToggleBreakpoint()<cr>
+noremap dbx :call vimspector#ClearBreakpoints()<cr>
+noremap dbc :call vimspector#ToggleConditionalBreakPoint()<cr>
+nnoremap daw :call AddToWatch()<CR>
+noremap so :call vimspector#StepOut()<cr>
+"step over represent the next step
+noremap sn :call vimspector#StepOver()<cr>
+noremap si :call vimspector#StepInto()<cr>
+noremap su :call vimspector#UpFrame()<cr>
+noremap sd :call vimspector#DownFrame()<cr>
+
+" Add VimspectorInstall <your_gadget> to setup a language
 
 "must be uncommented only for editing bw-frontend projects
 "set suffixesadd+=.js
