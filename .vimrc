@@ -682,21 +682,21 @@ func! AddToWatch()
 	call vimspector#AddWatch(word)
 endfunction
 
-noremap dl :call vimspector#Launch()<cr>
-noremap dR :call vimspector#Reset()<cr>
-noremap dr :call vimspector#Restart()<cr>
-noremap dn :call vimspector#Continue()<cr>
-noremap dnc :call vimspector#RunToCursor()<cr>
-noremap db :call vimspector#ToggleBreakpoint()<cr>
-noremap dbx :call vimspector#ClearBreakpoints()<cr>
-noremap dbc :call vimspector#ToggleConditionalBreakPoint()<cr>
-nnoremap daw :call AddToWatch()<CR>
-noremap so :call vimspector#StepOut()<cr>
+noremap <leader>dl :call vimspector#Launch()<cr>
+noremap <leader>dR :call vimspector#Reset()<cr>
+noremap <leader>dr :call vimspector#Restart()<cr>
+noremap <leader>dn :call vimspector#Continue()<cr>
+noremap <leader>dnc :call vimspector#RunToCursor()<cr>
+noremap <leader>db :call vimspector#ToggleBreakpoint()<cr>
+noremap <leader>dbx :call vimspector#ClearBreakpoints()<cr>
+noremap <leader>dbc :call vimspector#ToggleConditionalBreakPoint()<cr>
+nnoremap <leader>daw :call AddToWatch()<CR>
+noremap <leader>so :call vimspector#StepOut()<cr>
 "step over represent the next step
-noremap sn :call vimspector#StepOver()<cr>
-noremap si :call vimspector#StepInto()<cr>
-noremap su :call vimspector#UpFrame()<cr>
-noremap sd :call vimspector#DownFrame()<cr>
+noremap <leader>sn :call vimspector#StepOver()<cr>
+noremap <leader>si :call vimspector#StepInto()<cr>
+noremap <leader>su :call vimspector#UpFrame()<cr>
+noremap <leader>sd :call vimspector#DownFrame()<cr>
 
 " Add VimspectorInstall <your_gadget> to setup a language
 
