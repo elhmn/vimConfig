@@ -191,6 +191,18 @@ autocmd BufWritePost *{.yaml,yml} retab!
 
 "Command map
 
+"copilot
+let g:copilot_filetypes = {
+      \ 'yaml': v:false,
+      \ 'markdown': v:true,
+      \ 'help': v:false,
+      \ 'gitcommit': v:true,
+      \ 'gitrebase': v:false,
+      \ 'hgcommit': v:false,
+      \ 'svn': v:false,
+      \ 'cvs': v:false,
+      \ '.': v:true}
+
 "copilot map to another key
 " i am currently  not using it as it is not working well
 " imap <silent><script><expr> <C-J> copilot#Accept("<CR>")
