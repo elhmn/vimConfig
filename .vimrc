@@ -160,6 +160,8 @@ set noeb vb t_vb=
 
 "Style
 syntax on
+" Add assembly syntax support
+autocmd BufNew,BufRead *.asm set ft=nasm
 "set mouse=a
 set hls
 set number
