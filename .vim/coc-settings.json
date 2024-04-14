@@ -9,6 +9,9 @@
   "html.format.indentInnerHtml": true,
   "html.format.indentHandlebars": true,
   "html.format.enable": true,
+  "solargraph.diagnostics": true,
+  "solargraph.formatting": true,
+  "solargraph.autoformat": true,
   "languageserver": {
     "golang": {
       "command": "gopls",
@@ -37,7 +40,7 @@
           "directory": "/tmp/ccls"
         },
         "clang": {
-//Run this command to get the paths ->  clang -E -x c - -v < /dev/null
+          //Run this command to get the paths ->  clang -E -x c - -v < /dev/null
           "extraArgs": [
             "-isystem",
             "/usr/local/include",
@@ -54,5 +57,6 @@
         }
       }
     }
-  }
+  },
+  "snippets.ultisnips.pythonPrompt": false
 }

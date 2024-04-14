@@ -171,7 +171,8 @@ set foldenable
 set foldmethod=syntax
 
 "Indentation
-set noexpandtab
+" set noexpandtab
+set expandtab
 set copyindent
 set preserveindent
 set softtabstop=0
@@ -194,6 +195,7 @@ autocmd BufWritePost *{.yaml,yml} retab!
 "Command map
 
 "copilot
+" setup copilot can be done by following the instructions here -> https://github.com/github/copilot.vim
 let g:copilot_filetypes = {
       \ 'yaml': v:false,
       \ 'markdown': v:true,
